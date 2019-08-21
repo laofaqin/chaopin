@@ -3,14 +3,11 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-
-import axios from 'axios';
-import Vant from 'vant';
-import 'vant/lib/index.css';
+import axios from 'axios'
+import Vant from 'vant'
+import 'vant/lib/index.css'
 import store from './store'
 import vueTap from 'v-tap'
-
-
 
 Vue.use(Vant);
 Vue.prototype.$axios = axios;
