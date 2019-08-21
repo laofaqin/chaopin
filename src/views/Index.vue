@@ -1,11 +1,9 @@
 <template>
-	<div>
-		
-		<div class="container">
-			
-			<router-view @toparent="getTitle"></router-view>
-			
+	<div>		
+		<div class="container">			
+			<router-view @toparent="getTitle"></router-view>			
 		</div>
+		
 		<van-tabbar v-model="active">
 		  <van-tabbar-item icon="home-o" to="/Home">首页</van-tabbar-item>
 		  <van-tabbar-item icon="search" to="/ProSort">分类</van-tabbar-item>
@@ -35,7 +33,6 @@
 
 <style scoped="">
 	.container{
-		margin-top: 46px;
 		margin-bottom: 50px;
 	}
 </style>
