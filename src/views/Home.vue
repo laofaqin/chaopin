@@ -13,8 +13,7 @@ export default {
     };
   },
   methods: {
-    tap() {
-      
+    tap() {      
       this.$axios({
         url: "http://jx.xuzhixiang.top/ap/api/productlist.php",
         params: { uid: 19802 }
