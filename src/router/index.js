@@ -9,6 +9,10 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
+  	{
+  		path:'/',
+  		redirect:'/Home'
+  	},
     {
       path: '/',
       name: 'Index',
@@ -38,7 +42,6 @@ export default new Router({
           name: 'Mine',
           component: () => import('../views/Mine')
         }
-
       ]
     },
     {
@@ -55,6 +58,16 @@ export default new Router({
       path:'/Cart',
       name:'Cart',
       component:()=>import('../views/Cart')
+    },
+    {
+    	path: '/login',
+      name: 'login',
+      component:() => import('../views/Login')
+    },
+    {
+    	path: '/register',
+      name: 'register',
+      component:() => import('../views/Register')
     }
 
   ]
