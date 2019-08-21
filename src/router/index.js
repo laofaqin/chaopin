@@ -30,9 +30,15 @@ export default new Router({
         {
           path: '/Mine',
           name: 'Mine',
-          component: () => import('../views/Mine')
+          component: () => import('../views/Mine'),
+          children:[
+            {
+              path:'/MyOrder',
+              name:'MyOrder',
+              component:() => import('../views/MyOrder') 
+            }
+          ]
         }
-
       ]
     }
 
