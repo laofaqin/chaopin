@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+
 import Index from '@/views/Index'
 
 
@@ -9,13 +9,10 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-  	{
-  		path:'/',
-  		redirect:'/Home'
-  	},
     {
       path: '/',
       name: 'Index',
+      redirect:'/Home',
       component: Index,
       children: [
         {
@@ -30,7 +27,20 @@ export default new Router({
         {
           path: '/ProSort',
           name: 'ProSort',
-          component: () => import('../views/ProSort')
+          redirect:'/ShoeSort',
+          component: () => import('../views/ProSort'),
+          children:[
+          	{
+          		path:'/shoesort',
+          		name:'shoesort',         		
+ 						component:()=>import('../views/ShoeSort')
+          	},
+          	{
+          		path:'/bagsort',
+          		name:'bagsort',
+          		component:()=>import('../views/BagSort')
+          	}
+          ]
         },
         {
           path: '/Cart',
@@ -75,6 +85,11 @@ export default new Router({
     	path: '/register',
       name: 'register',
       component:() => import('../views/Register')
+    },
+     {
+    	path: '/getword',
+      name: 'getword',
+      component:() => import('../views/GetWord')
     }
 
   ]
