@@ -57,6 +57,11 @@ export default new Router({
       component:()=>import('../views/Try')
     },
     {
+      path:'/Tryy',
+      name:'Tryy',
+      component:()=>import('../views/Tryy')
+    },
+    {
       path:'/Search',
       name:'Search',
       component:()=>import('../views/Search')
@@ -75,7 +80,33 @@ export default new Router({
     	path: '/register',
       name: 'register',
       component:() => import('../views/Register')
-    }
+    },
+    {
+      path:'/SportShoes',
+      name:'SportShoes',
+      component:()=>import('../views/SportShoes')
+    },
+    //这一块注释是 覃永发 临时放的,后期有用, 不要删.
+    // {
+    //   path:'/Bag',
+    //   name:'Bag',
+    //   component:()=>import('../views/Bag')
+    // },
+    // {
+    //   path:'/Watch',
+    //   name:'Watch',
+    //   component:()=>import('../views/Watch')
+    // },
+    // {
+    //   path:'/Beauty',
+    //   name:'Beauty',
+    //   component:()=>import('../views/Beauty')
+    // },
+    // {
+    //   path:'/Clothes',
+    //   name:'Clothes',
+    //   component:()=>import('../views/Clothes')
+    // }
 
   ]
 })
