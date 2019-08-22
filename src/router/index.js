@@ -40,14 +40,7 @@ export default new Router({
         {
           path: '/Mine',
           name: 'Mine',
-          component: () => import('../views/Mine'),
-          children:[
-            {
-              path:'/MyOrder',
-              name:'MyOrder',
-              component:() => import('../views/MyOrder') 
-            }
-          ]
+          component: () => import('../views/Mine')
         }
       ]
     },
@@ -75,7 +68,81 @@ export default new Router({
     	path: '/register',
       name: 'register',
       component:() => import('../views/Register')
-    }
-
+    },
+    {
+      path:'/Setting',
+      name:'Setting',
+      component:() => import('../views/Setting')
+    },
+    {
+      path:'/MyOrder',
+      name:'MyOrder',
+      component:() => import('../views/MyOrder') 
+    },
+    {
+      path:'/AllOrder',
+      name:'AllOrder',
+      component:() => import('../views/AllOrder')
+    },
+    {
+      path:'/Sent',
+      name:'Sent',
+      component:() => import('../views/Sent')
+    },
+    {
+      path:'/GetPro',
+      name:'GetPro',
+      component:() => import('../views/GetPro')
+    },
+    {
+      path:'/MyPrice',
+      name:'MyPrice',
+      component:() => import('../views/MyPrice')
+    },
+    {
+      path:'/MyCollect',
+      name:'MyCollect',
+      component:() => import('../views/MyCollect')
+    },
+    {
+      path:'/MyEstimate',
+      name:'MyEstimate',
+      component:() => import('../views/MyEstimate')
+    },
+    {
+      path:'/MyAddress',
+      name:'MyAddress',
+      component:() => import('../views/MyAddress')
+    },
+    {
+      path:'/NewAddress',
+      name:'NewAddress',
+      component:() => import('../views/NewAddress')
+    },
+    {
+      path:'/MyCoupon',
+      name:'MyCoupon',
+      component:() => import('../views/MyCoupon')
+    },
+    {
+      path:'/Service',
+      name:'Service',
+      component:() => import('../views/Service')
+    },
+    {
+      path:'/MyInfo',
+      name:'MyInfo',
+      component:() => import('../views/MyInfo')
+    },
+    {
+      path:'/About',
+      name:'About',
+      component:() => import('../views/About')
+    },
+    {
+      path:'/Suggestion',
+      name:'Suggestion',
+      component:() => import('../views/Suggestion')
+    },
   ]
 })
