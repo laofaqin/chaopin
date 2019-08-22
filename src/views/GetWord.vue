@@ -2,7 +2,7 @@
 	<div>
 		<header>
 			<van-nav-bar
-			  title="创建账号"
+			  title="找回密码"
 			  left-text="返回"		 
 			  left-arrow
 			  @click-left="onClickLeft"		 
@@ -24,10 +24,16 @@
 			    placeholder="设置密码"
 			   
 			  />
+			  <van-field
+			    v-model="password"
+			    type="password"	   
+			    placeholder="重新输入密码"
+			   
+			  />
 			</van-cell-group>		
 		</div>
 		<div class="set2">
-			<van-button type="primary" class='box'>注册</van-button>
+			<van-button type="primary" class='box'>完成</van-button>
 		</div>				
 		</section>
 		
@@ -37,7 +43,7 @@
 
 <script>
 	export default{
-		name:'register',
+		name:'getword',
 		data(){
 			return{
 				username:'',

@@ -5,27 +5,19 @@
   		</div>
   	  <div id="spfl">
   	  	<van-sidebar v-model="activeKey">
-				  <van-sidebar-item title="运动鞋" />
-				  <van-sidebar-item title="箱包" />
-				  <van-sidebar-item title="运动鞋" />
-				  <van-sidebar-item title="箱包" />
-				  <van-sidebar-item title="运动鞋" />
-				  <van-sidebar-item title="箱包" />
-				  <van-sidebar-item title="运动鞋" />
-				  <van-sidebar-item title="箱包" />
+				  <van-sidebar-item title="运动鞋" to="/shoesort"/>
+				  <van-sidebar-item title="箱包" to="/bagsort"/>
+				  <van-sidebar-item title="运动鞋" to="/shoesort"/>
+				  <van-sidebar-item title="箱包" to="/bagsort"/>
+				  <van-sidebar-item title="运动鞋" to="/shoesort"/>
+				  <van-sidebar-item title="箱包" to="/bagsort"/>
+				  <van-sidebar-item title="运动鞋" to="/shoesort"/>
+				  <van-sidebar-item title="箱包" to="/bagsort"/>
+				  <van-sidebar-item title="运动鞋" to="/shoesort"/>
 				</van-sidebar>
 				<div>
-					<img src="../../build/logo.png"/>
-					<ul>
-						<li>
-							<a href="">
-								<img src="../assets/logo.png"/>
-								<p>耐克</p>
-							</a>
-						</li>
-					</ul>
+					<router-view></router-view>			
 				</div>
-				
   	  </div>
   		
   	
@@ -35,10 +27,10 @@
 
 <script>
 export default {
-	name:'prosort',
+	name:'ProSort',
   data(){
     return {
-      activeKey: 0
+      activeKey: 0,
     };
   }
 };
@@ -52,16 +44,16 @@ export default {
 }
 #top{
 	width:100%;
-	height:46px;
+	height:60px;
 	background: black;
 }	
 #top p{
 	color: white;	
+	text-align: center;
 }	
 #spfl{
 	display:flex;
 	justify-content:flex-start; 
-
 }
 
 </style>
