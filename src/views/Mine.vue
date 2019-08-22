@@ -1,11 +1,11 @@
 <template>
   <div>
     <!-- TOP -->
-    <div class="sz" @click="tiao()">
+    <div class="sz" v-tap='{methods:goSet}'>
       <van-icon name="setting-o" class="icon-set" />
     </div>
 
-    <div class="grxx" @click="tiao()">
+    <div class="grxx" v-tap='{methods:goSet}'>
       <div>
         <van-image
           round
@@ -16,13 +16,13 @@
         />
       </div>
       <div class="grxx_dh">
-        <p>123456789</p>
+        <p>12345678910</p>
         <p>个人信息</p>
       </div>
     </div>
     <!-- 我的订单 -->
     <div class="kx"></div>
-    <div class="wddd">
+    <div class="wddd" v-tap='{methods:goOrder}'>
         <van-icon name="todo-list" class="ddjt_1"/>
         <p>我的订单</p>
         <p>查看全部订单</p>
@@ -37,48 +37,52 @@
                 :key="1"
                 icon="paid"
                 text="待付款"
+                v-tap='{methods:goAllOrder}'
             />
             <van-grid-item
                 :key="2"
                 icon="logistics"
-                text="待收款"
+                text="待收货"
+                v-tap='{methods:goSent}'
             />
             <van-grid-item
                 :key="3"
                 icon="flower-o"
                 text="待评价"
+                v-tap='{methods:goGetPro}'
             />
             <van-grid-item
                 :key="4"
                 icon="after-sale"
                 text="退款售后"
+                v-tap='{methods:goAllOrder}'
             />
         </van-grid>
     </div>
     <!-- 我的... -->
     <div class="kx"></div>
     <div class="wd">
-        <div class="wdkj">
+        <div class="wdkj" v-tap='{methods:goMyPrice}'>
             <van-icon name="chat" class="wdkj_1"/>
             <p>我的砍价</p>
             <van-icon name="arrow" class="wdkj_2"/>
         </div>
-        <div class="wdkj">
+        <div class="wdkj" v-tap='{methods:goMyCollect}'>
             <van-icon name="star" class="wdkj_1"/>
             <p>我的收藏</p>
             <van-icon name="arrow" class="wdkj_2"/>
         </div>
-        <div class="wdkj">
+        <div class="wdkj" v-tap='{methods:goMyEstimate}'>
             <van-icon name="smile" class="wdkj_1"/>
             <p>我的评价</p>
             <van-icon name="arrow" class="wdkj_2"/>
         </div>
-        <div class="wdkj">
+        <div class="wdkj" v-tap='{methods:goMyAddress}'>
             <van-icon name="map-marked" class="wdkj_1"/>
             <p>我的地址</p>
             <van-icon name="arrow" class="wdkj_2"/>
         </div>
-        <div class="wdkj">
+        <div class="wdkj" v-tap='{methods:goMyCoupon}'>
             <van-icon name="gold-coin" class="wdkj_1"/>
             <p>优惠券</p>
             <van-icon name="arrow" class="arr_yhq"/>          
@@ -87,16 +91,16 @@
     <!-- 联系客服 -->
     <div class="kx3"></div>
     <div class="lxkf">
-        <div class="wdkj">
+        <div class="wdkj" v-tap='{methods:goService}'>
             <van-icon name="phone" class="wdkj_1"/>
             <p>联系客服</p>
             <van-icon name="arrow" class="wdkj_2"/>
         </div>
-        <div class="wdkj">
+        <!-- <div class="wdkj">
             <van-icon name="cluster" class="wdkj_1"/>
             <p>分享好友</p>
             <van-icon name="arrow" class="wdkj_2"/>
-        </div>
+        </div> -->
     </div>
   </div>
 </template>
@@ -110,9 +114,40 @@ export default {
         }
     },
     methods: {
-        tiao(){
-            console.log(111)
+        goSet(){
+            this.$router.push('/Setting')
+        },
+        goOrder(){
+            this.$router.push('/MyOrder')
+        },
+        goAllOrder(){
+            this.$router.push('/AllOrder')
+        },
+        goSent(){
+            this.$router.push('/Sent')
+        },
+        goGetPro(){
+            this.$router.push('/GetPro')
+        },
+        goMyPrice(){
+            this.$router.push('/MyPrice')
+        },
+        goMyCollect(){
+            this.$router.push('/MyCollect')
+        },
+        goMyEstimate(){
+            this.$router.push('/MyEstimate')
+        },
+        goMyAddress(){
+            this.$router.push('/MyAddress')
+        },
+        goMyCoupon(){
+            this.$router.push('/MyCoupon')
+        },
+        goService(){
+            this.$router.push('/Service')
         }
+        
     },
 }
 </script>
