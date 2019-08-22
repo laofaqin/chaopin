@@ -10,6 +10,7 @@ import store from './store'
 import vueTap from 'v-tap'
 
 Vue.use(Vant);
+Vue.use(vueTap);
 Vue.prototype.$axios = axios;
 Vue.config.productionTip = false
 
