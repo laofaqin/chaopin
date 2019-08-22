@@ -99,7 +99,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .nav-bar {
   height: 60px;
   background: rgba(0, 0, 0, 0.8);

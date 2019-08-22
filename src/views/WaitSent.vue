@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name:'MyOrder',
+  name:'WaitSent',
   data(){
     return{
       active:0

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+
 import Index from '@/views/Index'
 
 
@@ -9,13 +9,10 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-  	{
-  		path:'/',
-  		redirect:'/Home'
-  	},
     {
       path: '/',
       name: 'Index',
+      redirect:'/Home',
       component: Index,
       children: [
         {
@@ -30,7 +27,20 @@ export default new Router({
         {
           path: '/ProSort',
           name: 'ProSort',
-          component: () => import('../views/ProSort')
+          redirect:'/ShoeSort',
+          component: () => import('../views/ProSort'),
+          children:[
+          	{
+          		path:'/shoesort',
+          		name:'shoesort',         		
+ 						component:()=>import('../views/ShoeSort')
+          	},
+          	{
+          		path:'/bagsort',
+          		name:'bagsort',
+          		component:()=>import('../views/BagSort')
+          	}
+          ]
         },
         {
           path: '/Cart',
@@ -40,14 +50,7 @@ export default new Router({
         {
           path: '/Mine',
           name: 'Mine',
-          component: () => import('../views/Mine'),
-          children:[
-            {
-              path:'/MyOrder',
-              name:'MyOrder',
-              component:() => import('../views/MyOrder') 
-            }
-          ]
+          component: () => import('../views/Mine')
         }
       ]
     },
@@ -106,7 +109,87 @@ export default new Router({
     //   path:'/Clothes',
     //   name:'Clothes',
     //   component:()=>import('../views/Clothes')
-    // }
+    // },
+    {
+      path:'/Setting',
+      name:'Setting',
+      component:() => import('../views/Setting')
+    },
+    {
+      path:'/MyOrder',
+      name:'MyOrder',
+      component:() => import('../views/MyOrder') 
+    },
+    {
+      path:'/AllOrder',
+      name:'AllOrder',
+      component:() => import('../views/AllOrder')
+    },
+    {
+      path:'/Sent',
+      name:'Sent',
+      component:() => import('../views/Sent')
+    },
+    {
+      path:'/GetPro',
+      name:'GetPro',
+      component:() => import('../views/GetPro')
+    },
+    {
+      path:'/MyPrice',
+      name:'MyPrice',
+      component:() => import('../views/MyPrice')
+    },
+    {
+      path:'/MyCollect',
+      name:'MyCollect',
+      component:() => import('../views/MyCollect')
+    },
+    {
+      path:'/MyEstimate',
+      name:'MyEstimate',
+      component:() => import('../views/MyEstimate')
+    },
+    {
+      path:'/MyAddress',
+      name:'MyAddress',
+      component:() => import('../views/MyAddress')
+    },
+    {
+      path:'/NewAddress',
+      name:'NewAddress',
+      component:() => import('../views/NewAddress')
+    },
+    {
+      path:'/MyCoupon',
+      name:'MyCoupon',
+      component:() => import('../views/MyCoupon')
+    },
+    {
+      path:'/Service',
+      name:'Service',
+      component:() => import('../views/Service')
+    },
+    {
+      path:'/MyInfo',
+      name:'MyInfo',
+      component:() => import('../views/MyInfo')
+    },
+    {
+      path:'/About',
+      name:'About',
+      component:() => import('../views/About')
+    },
+    {
+      path:'/Suggestion',
+      name:'Suggestion',
+      component:() => import('../views/Suggestion')
+    },
+     {
+    	path: '/getword',
+      name: 'getword',
+      component:() => import('../views/GetWord')
+    }
 
   ]
 })

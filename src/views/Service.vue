@@ -2,28 +2,22 @@
   <div>
     <header>
       <div class="wddd">
-        <van-icon name="arrow-left" class="arrow" v-tap='{methods:goMine}'/>
-        <p>我的订单</p>
+        <van-icon name="arrow-left" class="arrow" v-tap="{methods:goMine}" />
+        <p>联系客服</p>
+      </div>
+      <div class="wdkf">
+          <p>客服时间早上8点到晚上11点</p>
       </div>
     </header>
-    <section>
-      <van-tabs  v-model="active">
-        <van-tab title="全部"></van-tab>
-        <van-tab title="未付款"></van-tab>
-        <van-tab title="代发货"></van-tab>
-        <van-tab title="已发货"></van-tab>
-        <van-tab title="已收货"></van-tab>
-      </van-tabs>
-    </section>
   </div>
 </template>
 
 <script>
 export default {
-  name:'MyOrder',
+     name:'Service',
   data(){
     return{
-      active:0
+      
     }
   },
   methods: {
@@ -31,6 +25,7 @@ export default {
       this.$router.push('/Mine')
     }
   },
+
 };
 </script>
 
@@ -50,5 +45,14 @@ export default {
   margin-left: 12px;
   margin-top: 12px;
 }
-
+.wdkf{
+    height:40px;
+    background: black;
+    margin-top: -20px;
+}
+.wdkf p{
+    color:whitesmoke;
+    line-height: 40px;
+    text-align: center;
+}
 </style>

@@ -2,35 +2,30 @@
   <div>
     <header>
       <div class="wddd">
-        <van-icon name="arrow-left" class="arrow" v-tap='{methods:goMine}'/>
-        <p>我的订单</p>
+        <van-icon name="arrow-left" class="arrow" v-tap="{methods:goSetting}" />
+        <p>个人信息</p>
       </div>
     </header>
     <section>
-      <van-tabs  v-model="active">
-        <van-tab title="全部"></van-tab>
-        <van-tab title="未付款"></van-tab>
-        <van-tab title="代发货"></van-tab>
-        <van-tab title="已发货"></van-tab>
-        <van-tab title="已收货"></van-tab>
-      </van-tabs>
+        <h3>关于我们</h3>
     </section>
   </div>
 </template>
 
 <script>
 export default {
-  name:'MyOrder',
+     name:'About',
   data(){
     return{
-      active:0
+      
     }
   },
   methods: {
-    goMine(){
-      this.$router.push('/Mine')
+    goSetting(){
+      this.$router.push('/Setting')
     }
   },
+
 };
 </script>
 
@@ -50,5 +45,4 @@ export default {
   margin-left: 12px;
   margin-top: 12px;
 }
-
 </style>
