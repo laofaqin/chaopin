@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Try</h2>
+    <h2>Try-axios</h2>
     <h3>用户</h3>
 		<button @click = "reg()">注册</button>
 		<button @click="tap()">登陆</button>
@@ -27,34 +27,11 @@
 </template>
 
 <script>
-// import api from '../api/api_pro'
-import Vue from 'vue';
-import axios from 'axios';
-Vue.prototype.$axios=axios;
-axios.defaults.baseURL = 'http://api.cat-shop.penkuoer.com';
-// 添加请求拦截器
-axios.interceptors.request.use(function (config) {
-    // 在发送请求之前做些什么
-    if(localStorage.getItem('token')){
-		console.log('请求了token')
-    		config.headers.common['authorization'] = "Bearer "+localStorage.getItem('token');
-    }
-    return config;
-  }, function (error) {
-	// 对请求错误做些什么
-	console.log('请求错误')
-    return Promise.reject(error);
-  });
+import api from '../api/api_pro'
+// import Vue from 'vue';
+// import axios from 'axios';
+// Vue.prototype.$axios=axios;
 
-// 添加响应拦截器
-axios.interceptors.response.use(function (response) {
-    // 对响应数据做点什么
-    console.log('获取到数据了')
-    return response;
-  }, function (error) {
-    // 对响应错误做点什么
-    return Promise.reject(error);
-  });
 
 export default {
   data() {
@@ -63,17 +40,6 @@ export default {
     };
   },
   methods: {
-    tap23() {
-      let data = {
-        userName:    "nihaomama",
-        password :   "12312jjjj",
-        nickName :   "昵称",
-        avatar  :    "124"
-      }
-      api.postUserInfo(data).then(res=>{
-        console.log(res)
-      })
-    },
     tap(){
 				this.$axios({
 					method:'post',
