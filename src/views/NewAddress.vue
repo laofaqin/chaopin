@@ -24,6 +24,7 @@
 
 <script>
 import addressList from '../data/addressList'
+
 export default {
 
   name: "NewAddress",

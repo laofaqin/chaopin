@@ -9,32 +9,32 @@
 			/>
 		</header>
 		<section>
-		<div class="set1">
-			<van-cell-group>
-			  <van-field
-			    v-model="username"			   
-			    clearable		   
-			    right-icon="question-o"
-			    placeholder="请输入用户名"
-			    @click-right-icon="$toast('请输入用户名')"
-			  />
-			  <van-field
-			    v-model="password"
-			    type="password"	   
-			    placeholder="设置密码"
-			   
-			  />
-			  <van-field
-			    v-model="password"
-			    type="password"	   
-			    placeholder="重新输入密码"
-			   
-			  />
-			</van-cell-group>		
-		</div>
-		<div class="set2">
-			<van-button type="primary" class='box'>完成</van-button>
-		</div>				
+			<div class="set1">
+				<van-cell-group>
+				  <van-field
+				    v-model="username"			   
+				    clearable		   
+				    right-icon="question-o"
+				    placeholder="请输入用户名"
+				    @click-right-icon="$toast('请输入用户名')"
+				  />
+				  <van-field
+				    v-model="password"
+				    type="password"	   
+				    placeholder="设置密码"
+				   
+				  />
+				  <van-field
+				    v-model="password"
+				    type="password"	   
+				    placeholder="重新输入密码"
+				   
+				  />
+				</van-cell-group>		
+			</div>
+			<div class="set2">
+				<van-button type="primary" class='box'>完成</van-button>
+			</div>				
 		</section>
 		
 		

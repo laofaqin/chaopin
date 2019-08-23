@@ -6,7 +6,7 @@ export default{
 	userLogin:data=>{
 		return API.POST('/api/v1/auth/login',data)
 	},
-	// 用户注册
+	// 用户注册 
 	userReg:data=>{
 		return API.POST('/api/v1/auth/reg',data)
 	},
