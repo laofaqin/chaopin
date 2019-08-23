@@ -9,26 +9,26 @@
 			/>
 		</header>
 		<section>
-		<div class="set1">
-			<van-cell-group>
-			  <van-field
-			    v-model="username"			   
-			    clearable		   
-			    right-icon="question-o"
-			    placeholder="请输入用户名"
-			    @click-right-icon="$toast('请输入用户名')"
-			  />
-			  <van-field
-			    v-model="password"
-			    type="password"	   
-			    placeholder="设置密码"
-			   
-			  />
-			</van-cell-group>		
-		</div>
-		<div class="set2">
-			<van-button type="primary" class='box'>注册</van-button>
-		</div>				
+			<div class="set1">
+				<van-cell-group>
+				  <van-field
+				    v-model="username"			   
+				    clearable		   
+				    right-icon="question-o"
+				    placeholder="请输入手机号"
+				    @click-right-icon="$toast('请输入手机号')"
+				  />
+				  <van-field
+				    v-model="password"
+				    type="password"	   
+				    placeholder="设置密码"
+				   
+				  />
+				</van-cell-group>		
+			</div>
+			<div class="set2">
+				<van-button type="primary" class='box' @click='register()'>注册</van-button>
+			</div>				
 		</section>
 		
 		
@@ -36,6 +36,7 @@
 </template>
 
 <script>
+import api from '../api/api_try'    	
 	export default{
 		name:'register',
 		data(){
@@ -47,7 +48,21 @@
 		methods:{
 		    onClickLeft() {
 		    	this.$router.go(-1);
-		    }
+		    },
+			register(){
+	            let data = {
+	                "userName":this.username,
+	                "password":this.password
+	            };
+	            api.userReg(data).then(res=>{
+	               if(res.data.message=="用户名已存在！"){
+	               	alert("用户名已存在！")
+	               }else{
+	               	alert("注册成功")
+	               	this.$router.push('/login');					
+	               }
+	            })
+	        }
 		}
 	}
 </script>
