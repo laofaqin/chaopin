@@ -16,7 +16,7 @@
         />
       </div>
       <div class="grxx_dh">
-        <p>12345678910</p>
+        <p>{{userInfo}}</p>
         <p>个人信息</p>
       </div>
     </div>
@@ -106,11 +106,12 @@
 </template>
 
 <script>
+import api from '../api/api_zhang'
 export default {
     name:'Mine',
     data(){
         return{
-
+            userInfo:''
         }
     },
     methods: {
@@ -149,7 +150,7 @@ export default {
         }       
     },
     mounted() {
-        
+      this.userInfo = localStorage.getItem("userInfo")        
     },
 }
 </script>
