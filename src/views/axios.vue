@@ -6,6 +6,8 @@
   <button @click='detail()'>商品详情</button>
   <button @click='addCart()'>加入购物车</button>
   <button @click='proList()'>商品列表</button>
+  <button @click='getInfo()'>用户信息</button>
+
 
     <h2>管理</h2>
     <button @click="admin()">admin登录</button>
@@ -27,6 +29,7 @@ export default {
             }
             api.userLogin(data).then(res=>{
             console.log(res)
+            localStorage.setItem('token',res.data.token)
         })
         },
         register(){
@@ -65,7 +68,12 @@ export default {
                 console.log(res.data.products)
             })
         },
-
+        //获取用户信息
+        getInfo(){
+            api.getUserInfo().then(res=>{
+                console.log(res)
+            })
+        },
 // --------管理新系统--------------------------------
         admin(){
            api.adminLogin().then(res=>{
