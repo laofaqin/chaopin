@@ -14,10 +14,10 @@
 			</div>			
 			<div id="dlzc">
 				<van-cell-group>
-				  <van-field v-model="value" placeholder="请输入用户名" />
+				  <van-field v-model="value" placeholder="请输入手机号" />
 				  <van-field v-model="password" type="password"  placeholder="密码"/>
 				</van-cell-group>
-				<van-button type="primary" class='box'>登录</van-button>
+				<van-button type="primary" class='box' @click='login()'>登录</van-button>
 			</div>	
 			<div class="zhuce">
 				<router-link to="/register">创建账号</router-link>
@@ -42,6 +42,7 @@
 </template>
 
 <script>
+import api from '../api/api_try'
 export default {
 	name:'login',
 	data(){
@@ -52,9 +53,23 @@ export default {
 	},
 	methods:{
 		onClickLeft() {
-		 this.$router.push('/home');
-		 
-		}
+		 this.$router.push('/home');		 
+		},
+		login(){
+            let data = {
+               "userName":this.value,
+	           "password":this.password
+            }
+            api.userLogin(data).then(res=>{
+          	 if(res.data.code=="success"){
+          	 	 this.$router.push('/home');
+          	 	 localStorage.setItem("userInfo",this.value)
+          	 	 alert("登录成功")
+          	 }else{
+          	 	alert("用户名或密码错误")
+          	 }
+        })
+        },
 	}
 }
 </script>
