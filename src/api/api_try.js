@@ -10,6 +10,11 @@ export default{
 	userReg:data=>{
 		return API.POST('/api/v1/auth/reg',data)
 	},
+	// 获取用户信息
+	getUserInfo:()=>{
+		return API.GET('/api/v1/auth/info')
+	},
+
 	//获取商品详情
 	getDetail:pid=>{
 		return API.GET(`/api/v1/products/${pid}`)
