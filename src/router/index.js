@@ -185,7 +185,7 @@ export default new Router({
       name:'Suggestion',
       component:() => import('../views/Suggestion')
     },
-     {
+    {
     	path: '/getword',
       name: 'getword',
       component:() => import('../views/GetWord')
@@ -195,6 +195,5 @@ export default new Router({
       name:'Axios',
       component:()=>import('../views/axios')
     }
-
   ]
 })
