@@ -29,8 +29,9 @@
 <script>
 import api from '../api/api_pro'
 // import Vue from 'vue';
-// import axios from 'axios';
+import axios from 'axios';
 // Vue.prototype.$axios=axios;
+axios.defaults.baseURL = 'http://api.cat-shop.penkuoer.com';
 
 
 export default {
@@ -144,7 +145,7 @@ export default {
 						descriptions :'这是未来前段精英们做的一个app',
 						quantity  :4,
 						price    :8888,
-						// coverImg :'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567080783&di=7a9e51caed51be46d58a5b4f0da84213&imgtype=jpg&er=1&src=http%3A%2F%2Fimg007.hc360.cn%2Fk3%2FM0A%2FC1%2F20%2FwKhQv1eNvbSEEbNPAAAAAKz8Ryg386.jpg',
+						coverImg :'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567080783&di=7a9e51caed51be46d58a5b4f0da84213&imgtype=jpg&er=1&src=http%3A%2F%2Fimg007.hc360.cn%2Fk3%2FM0A%2FC1%2F20%2FwKhQv1eNvbSEEbNPAAAAAKz8Ryg386.jpg',
 						productCategory :'chaopin'
 					}
 				}).then((data)=>{
@@ -230,7 +231,7 @@ export default {
 							{
 								quantity:1, 			//数量
 								product:pid,   			//商品id
-								price:99,     			//商品单价
+								price:24,     			//商品单价
 							},
 							{
 								quantity:3, 			//数量
