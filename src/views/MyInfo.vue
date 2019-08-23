@@ -21,16 +21,16 @@
         
         <div class="hym">
             <p>会员名</p>
-            <span>12345678910</span>
+            <span>{{userInfo}}</span>
           <van-icon name="arrow" class="arrow2"/>
         </div>
 
         <div class="phone">
             <p>手机号码</p>
-            <span>12345678910</span>
+            <span>{{userInfo}}</span>
           <van-icon name="arrow" class="arrow3"/>
         </div>
-
+        
         <van-button color="goldenrod" size='large' round='true'>保存</van-button>
       </div>
     </section>
@@ -41,13 +41,18 @@
 export default {
   name: "MyInfo",
   data() {
-    return {};
+    return {
+      userInfo:''
+    };
   },
   methods: {
     goSetting() {
       this.$router.push("/Setting");
     }
-  }
+  },
+  mounted() {
+      this.userInfo = localStorage.getItem("userInfo")        
+    },
 };
 </script>
 
