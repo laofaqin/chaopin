@@ -15,9 +15,9 @@
 </template>
 
 <script>
-	export	default{
-		name:'nike'
-	}
+export	default{
+	name:'nike'
+}
 </script>
 
 <style scoped>
