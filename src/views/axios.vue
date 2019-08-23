@@ -22,11 +22,12 @@ export default {
     methods:{
         login(){
             let data = {
-                "userName":'mooncup',
+                "userName":'13333333333',
                 "password":'mooncup'
             }
             api.userLogin(data).then(res=>{
-            console.log(res)
+            console.log(res.config.data)
+            localStorage.setItem('userInfo','13333333333')
         })
         },
         register(){
