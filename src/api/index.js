@@ -1,5 +1,5 @@
 import axios from 'axios';
-axios.defaults.baseURL = 'http://api.cat-shop.penkuoer.com';
+// axios.defaults.baseURL = 'http://api.cat-shop.penkuoer.com';
 
 let base=process.env.API_ROOT;
 //拦截器
