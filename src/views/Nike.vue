@@ -8,25 +8,22 @@
 				@click-left="onClickLeft"		 
 			/>
 		</header>
-	
+		<nav>
+			<img src="../img/Screenshot_20190822-164045_02.jpg" alt="" />
+		</nav>
 	</div>
-
-
-
-
-
-
-
-
-
 </template>
 
 <script>
+	export	default{
+		name:'nike'
+	}
 </script>
 
-<style>
+<style scoped>
 
 header{
 position: fixed;
 }
+
 </style>
