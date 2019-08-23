@@ -194,6 +194,11 @@ export default new Router({
       path:'/axios',
       name:'Axios',
       component:()=>import('../views/axios')
-    }
+    },
+    {
+      path:'/ProDetail',
+      name:'ProDetail',
+      component:()=>import('../views/ProDetail')
+    },
   ]
 })
