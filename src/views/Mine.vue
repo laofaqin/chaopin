@@ -146,7 +146,9 @@ export default {
         },
         goService(){
             this.$router.push('/Service')
-        }
+        }       
+    },
+    mounted() {
         
     },
 }
