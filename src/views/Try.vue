@@ -1,7 +1,8 @@
 <template>
   <div>
-    <h2>Try</h2>
-    <h3>用户</h3>
+    <h2 style='height:60px;background:green'>Try</h2>
+	<section>
+    	<h3>用户</h3>
 		<button @click = "reg()">注册</button>
 		<button @click="tap()">登陆</button>
 		<button @click="tap1()">获取用户信息</button>
@@ -22,7 +23,9 @@
 		<button @click='resetUser()'>修改用户信息</button>
 		<button @click='addPro()'>增加商品信息</button>
 		<!-- <button @click=''></button> -->
-
+		
+	</section>
+	<footer style='height:60px;background:green'>footer</footer>
   </div>
 </template>
 
@@ -299,4 +302,14 @@ export default {
 </script>
 
 <style scoped>
+	
+	div{
+		height: 100vh;
+		display:flex;
+		flex-direction: column;
+	}
+	section{
+		flex:1;
+		overflow: auto;
+	}
 </style>
