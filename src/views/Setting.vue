@@ -16,7 +16,7 @@
                 height="60px"
                 src="https://img.yzcdn.cn/vant/cat.jpeg"
             />
-            <p>12345678910</p>
+            <p>{{userInfo}}</p>
             <van-icon name="arrow" class="arrow0"/>
         </div>
 
@@ -42,7 +42,7 @@ export default {
     name:'Setting',
     data(){
         return{
-
+            userInfo:''
         }
     },
     methods: {
@@ -58,7 +58,11 @@ export default {
         goSuggestion(){
             this.$router.push('/Suggestion')
         }
-  }
+  },
+  mounted() { 
+      this.userInfo = localStorage.getItem("userInfo")
+      //console.log(localStorage.getItem("userInfo"))
+  },
 }
 
 </script>
