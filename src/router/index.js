@@ -191,6 +191,11 @@ export default new Router({
       component:() => import('../views/GetWord')
     },
     {
+    	path: '/GetCut',
+      name: 'GetCut',
+      component:() => import('../views/GetCut')
+    },
+    {
       path:'/axios',
       name:'Axios',
       component:()=>import('../views/axios')
