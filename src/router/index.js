@@ -69,11 +69,11 @@ export default new Router({
       name:'Search',
       component:()=>import('../views/Search')
     },
-    {
-      path:'/Cart',
-      name:'Cart',
-      component:()=>import('../views/Cart')
-    },
+    // {
+    //   path:'/Cart',
+    //   name:'Cart',
+    //   component:()=>import('../views/Cart')
+    // },
     {
     	path: '/login',
       name: 'login',
