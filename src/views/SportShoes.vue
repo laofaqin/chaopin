@@ -7,22 +7,24 @@
             />
         <section>
             <van-tabs v-model="active">
-            <van-tab title="默认">
-                <div>
-                    <van-card 
-                    v-for="(item,i) in list"
-                    :key="i"
-                    :centered="true"
-                    :price="item.price"
-                    :desc="item.descriptions"  
-                    :thumb="item.coverImg"
-                    />
-                </div>
-            </van-tab>
-            <van-tab title="销量">内容 2</van-tab>
-            <van-tab title="价格">内容 3</van-tab>
-            <van-tab title="折扣">内容 4</van-tab>
-        </van-tabs>
+                <van-tab title="默认">
+                        <van-card 
+                        :id="item._id"
+                        v-tap="{methods:goDetail}"
+                        v-for="(item,i) in list"
+                        :key="i"
+                        :centered="true"
+                        :price="item.price"
+                        :desc="item.descriptions"  
+                        :thumb="item.coverImg"
+                        >
+                        <span slot='origin-price'>￥10000</span>
+                        </van-card>
+                </van-tab>
+                <van-tab title="销量">内容 2</van-tab>
+                <van-tab title="价格">内容 3</van-tab>
+                <van-tab title="折扣">内容 4</van-tab>
+            </van-tabs>
         </section>
        
   </div>
@@ -41,6 +43,11 @@ export default {
         onClickLeft() {
             console.log('fanhui')
             this.$router.go(-1)
+        },
+        goDetail(res){
+            console.log(res.event.currentTarget.id)
+            localStorage.setItem('detail',res.event.currentTarget.id)
+            this.$router.push('/ProDetail')
         }
     },
     mounted(){
@@ -73,21 +80,19 @@ export default {
         display: none;
 
     }
-    /* .van-card{
+    .van-card{
         width:50%;
         height:250px ;
         display: block;
+        margin-top:8px;
     }
-    .van-card__content{
+   /*  .van-card__content{
         display: block;
     }
     .van-card__thumb{
         display: block;
     } */
-    .van-card__header{
-        flex-direction: column;
-        width:49%;
-    }
+    
     
     #box{
         display:flex;
@@ -102,5 +107,19 @@ export default {
         flex:1;
         overflow: auto;
         /* margin-top: 60px; */
+    }
+    .van-tab__pane{
+        display:flex;
+        justify-content: space-around;
+        flex-direction: inherit;
+        flex-wrap: wrap;
+    }
+    .van-card__header{
+        flex-direction: column;
+        /* align-items: center; */
+    }
+    .van-card__thumb{
+        width:100%;
+        height: 100%;  
     }
 </style>
