@@ -8,6 +8,7 @@ import Vant from 'vant'
 import 'vant/lib/index.css'
 import store from './store'
 import vueTap from 'v-tap'
+import 'lib-flexible/flexible'
 
 Vue.use(Vant);
 Vue.use(vueTap);

@@ -10,7 +10,7 @@
     <section>
         <div class="grxx" v-tap='{methods:goMyInfo}'>
             <van-image
-                round
+            :round='true' 
                 cover
                 width="60px"
                 height="60px"
@@ -30,7 +30,7 @@
         </div>
     </section>
     <footer>
-        <div class="footer">
+        <div class="footer" v-tap='{methods:removeInfo}'>
             <p>退出当前账户</p>
         </div>
     </footer>
@@ -57,6 +57,10 @@ export default {
         },
         goSuggestion(){
             this.$router.push('/Suggestion')
+        },
+        removeInfo(){
+            this.userInfo = localStorage.removeItem('userInfo')
+            this.$router.push('/Home')
         }
   },
   mounted() { 
