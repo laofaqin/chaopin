@@ -21,9 +21,48 @@
                         <span slot='origin-price'>￥10000</span>
                         </van-card>
                 </van-tab>
-                <van-tab title="销量">内容 2</van-tab>
-                <van-tab title="价格">内容 3</van-tab>
-                <van-tab title="折扣">内容 4</van-tab>
+                <van-tab title="销量">
+                    <van-card 
+                        :id="item._id"
+                        v-tap="{methods:goDetail}"
+                        v-for="(item,i) in list"
+                        :key="i"
+                        :centered="true"
+                        :price="item.price"
+                        :desc="item.descriptions"  
+                        :thumb="item.coverImg"
+                        >
+                        <span slot='origin-price'>￥10000</span>
+                        </van-card>
+                </van-tab>
+                <van-tab title="价格">
+                    <van-card 
+                        :id="item._id"
+                        v-tap="{methods:goDetail}"
+                        v-for="(item,i) in list"
+                        :key="i"
+                        :centered="true"
+                        :price="item.price"
+                        :desc="item.descriptions"  
+                        :thumb="item.coverImg"
+                        >
+                        <span slot='origin-price'>￥10000</span>
+                        </van-card>
+                </van-tab>
+                <van-tab title="折扣">
+                    <van-card 
+                        :id="item._id"
+                        v-tap="{methods:goDetail}"
+                        v-for="(item,i) in list"
+                        :key="i"
+                        :centered="true"
+                        :price="item.price"
+                        :desc="item.descriptions"  
+                        :thumb="item.coverImg"
+                        >
+                        <span slot='origin-price'>￥10000</span>
+                        </van-card>
+                </van-tab>
             </van-tabs>
         </section>
        
