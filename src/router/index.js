@@ -120,26 +120,26 @@ const router =  new Router({
       }
     },
     //这一块注释是 覃永发 临时放的,后期有用, 不要删.
-    // {
-    //   path:'/Bag',
-    //   name:'Bag',
-    //   component:()=>import('../views/Bag')
-    // },
-    // {
-    //   path:'/Watch',
-    //   name:'Watch',
-    //   component:()=>import('../views/Watch')
-    // },
-    // {
-    //   path:'/Beauty',
-    //   name:'Beauty',
-    //   component:()=>import('../views/Beauty')
-    // },
-    // {
-    //   path:'/Clothes',
-    //   name:'Clothes',
-    //   component:()=>import('../views/Clothes')
-    // },
+    {
+      path:'/Bag',
+      name:'Bag',
+      component:()=>import('../views/Bag')
+    },
+    {
+      path:'/Watch',
+      name:'Watch',
+      component:()=>import('../views/Watch')
+    },
+    {
+      path:'/Beauty',
+      name:'Beauty',
+      component:()=>import('../views/Beauty')
+    },
+    {
+      path:'/Clothes',
+      name:'Clothes',
+      component:()=>import('../views/Clothes')
+    },
     {
       path:'/Setting',
       name:'Setting',
@@ -288,6 +288,17 @@ const router =  new Router({
       name:'Tanchu',
       component:()=>import('../views/Tanchu')
     },
+    {
+      path:'/Nike',
+      name:'Nike',
+      component:()=>import('../views/Nike')
+    },
+    {
+      path:'/PayOrder',
+      name:'PayOrder',
+      component:()=>import('../views/PayOrder')
+    },
+
 
   ]
 })
