@@ -3,7 +3,7 @@
         v-model="this.$store.state.show"
         :sku="sku"
         :goods="goods"
-        close-on-click-overlay=true
+        :close-on-click-overlay='true'
         @buy-clicked="onBuyClicked"
         @add-cart="onAddCartClicked"
         @close-preview='close'
@@ -110,11 +110,10 @@ export default {
             api.addCart(data).then(res=>{
                 console.log(res)
             this.$store.commit('change')
-
             })
         },
         close(){
-            this.$store.commit('change')
+            // this.$store.commit('change')
             console.log('关闭')
         }
     },
@@ -124,8 +123,9 @@ export default {
             this.goods.picture = res.data.coverImg;
             this.sku.price = res.data.price;
             this.sku.stock_num  = res.data.quantity;
+        this.sku.list[0].price = res.data.price*100
         })
-        console.log(this.$store.state.show)
+        // console.log(this.$store.state.show)
     }
 }
 </script>
