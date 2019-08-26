@@ -283,6 +283,12 @@ const router =  new Router({
       name:'ProDetail',
       component:()=>import('../views/ProDetail')
     },
+    {
+      path:'/Tanchu',
+      name:'Tanchu',
+      component:()=>import('../views/Tanchu')
+    },
+
   ]
 })
 

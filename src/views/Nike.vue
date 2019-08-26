@@ -9,7 +9,7 @@
 			/>
 		</header>
 		<nav>
-			<img src="../img/Screenshot_20190822-164045_02.jpg" alt="" />
+			<img src="../img/Screenshot_20190822-164045_02.jpg" />
 		</nav>
 	</div>
 </template>
