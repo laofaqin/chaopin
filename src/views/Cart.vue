@@ -1,10 +1,13 @@
 <template>
   <div class="cart">
     <header>
-      <div class="header">
-        <p>购物车</p>
-        <van-icon name="delete" class="icon-del" />
-      </div>
+      <van-nav-bar
+          title="购物车"
+          @click-right="onClickRight"
+        >
+        <van-icon name="delete" slot="right" color='white' />
+        </van-nav-bar>
+
     </header>
     <section>
       <van-checkbox-group class="card-goods" v-model="checkedGoods">
@@ -25,11 +28,14 @@
         @submit="onSubmit"
       />
     </section>
-    <footer></footer>
+    <footer>
+      
+    </footer>
   </div>
 </template>
 
 <script>
+import api from '../api/api_try'
 import { Checkbox, CheckboxGroup, Card, SubmitBar, Toast } from "vant";
 export default {
   components: {
@@ -40,76 +46,18 @@ export default {
   },
   data() {
     return {
-      checkedGoods: ["1", "2", "3"],
-      goods: [
-        {
-          id: "1",
-          title: "进口香蕉",
-          desc: "约250g，2根",
-          price: 200,
-          num: 1,
-          thumb:
-            "https://img.yzcdn.cn/public_files/2017/10/24/2f9a36046449dafb8608e99990b3c205.jpeg"
-        },
-        {
-          id: "2",
-          title: "陕西蜜梨",
-          desc: "约600g",
-          price: 690,
-          num: 1,
-          thumb:
-            "https://img.yzcdn.cn/public_files/2017/10/24/f6aabd6ac5521195e01e8e89ee9fc63f.jpeg"
-        },{
-          id: "765",
-          title: "陕西蜜梨",
-          desc: "约600g",
-          price: 690,
-          num: 4,
-          thumb:
-            "https://img.yzcdn.cn/public_files/2017/10/24/f6aabd6ac5521195e01e8e89ee9fc63f.jpeg"
-        },{
-          id: "12",
-          title: "陕西蜜梨",
-          desc: "约600g",
-          price: 690,
-          num: 8,
-          thumb:
-            "https://img.yzcdn.cn/public_files/2017/10/24/f6aabd6ac5521195e01e8e89ee9fc63f.jpeg"
-        },{
-          id: "45",
-          title: "陕西蜜梨",
-          desc: "约600g",
-          price: 690,
-          num: 2,
-          thumb:
-            "https://img.yzcdn.cn/public_files/2017/10/24/f6aabd6ac5521195e01e8e89ee9fc63f.jpeg"
-        },{
-          id: "43",
-          title: "陕西蜜梨",
-          desc: "约600g",
-          price: 690,
-          num: 1,
-          thumb:
-            "https://img.yzcdn.cn/public_files/2017/10/24/f6aabd6ac5521195e01e8e89ee9fc63f.jpeg"
-        },{
-          id: "987",
-          title: "陕西蜜梨",
-          desc: "约600g",
-          price: 690,
-          num: 1,
-          thumb:
-            "https://img.yzcdn.cn/public_files/2017/10/24/f6aabd6ac5521195e01e8e89ee9fc63f.jpeg"
-        },
-        {
-          id: "3",
-          title: "美国伽力果",
-          desc: "约680g/3个",
-          price: 2680,
-          num: 1,
-          thumb:
-            "https://img.yzcdn.cn/public_files/2017/10/24/320454216bbe9e25c7651e1fa51b31fd.jpeg"
-        }
-      ]
+      checkedGoods: [],
+      goods:[]
+        // {
+        //   id: "1",
+        //   title: "进口香蕉",
+        //   desc: "约250g，2根",
+        //   price: 200,
+        //   num: 1,
+        //   thumb:
+        //     "https://img.yzcdn.cn/public_files/2017/10/24/2f9a36046449dafb8608e99990b3c205.jpeg"
+        // }
+      
     };
   },
   computed: {
@@ -118,11 +66,14 @@ export default {
       return "结算" + (count ? `(${count})` : "");
     },
     totalPrice() {
-      return this.goods.reduce(
+      let money = this.goods.reduce(
         (total, item) =>
-          total + (this.checkedGoods.indexOf(item.id) !== -1 ? item.price : 0),
+          total + Number(this.checkedGoods.indexOf(item.id) !== -1 ? item.price*item.num : 0),
         0
       );
+      this.$store.state.sum = money
+      return money
+
     }
   },
   methods: {
@@ -130,14 +81,57 @@ export default {
       return (price / 100).toFixed(2);
     },
     onSubmit() {
-      Toast("点击结算");
+      this.$store.state.orderId = this.checkedGoods;
+      localStorage.setItem('orderId',JSON.stringify(this.checkedGoods))
+      console.log(this.$store.state.orderList)
+      console.log(this.$store.state.sum)
+      this.$router.push('/payOrder')
+    },
+    onClickRight(){
+      console.log('删除')
+      console.log(this.checkedGoods)
+      this.checkedGoods.map(function(i){
+        api.deleteCart(i).then(res=>{
+          console.log(res)
+        })
+      })
     }
-  }
+  },
+  mounted(){
+    api.getCart().then(res=>{
+      console.log(res.data)
+      this.goods= res.data.map((i,n)=>{
+       return {
+          id:`${i._id}`,
+          title: `${i.product.descriptions}`,
+          desc: "约250g，2根",
+          price:`${Number(i.product.price*100)}`,
+          num:`${i.quantity}`,
+          thumb:`${i.product.coverImg}`,
+          pid:`${i.product._id}`
+        }
+      })
+      this.$store.state.orderList = this.goods
+      console.log(this.goods)
+      localStorage.setItem('orderList',JSON.stringify(this.goods))
+    })
+    
+  },
+  
 };
 </script>
 
-<style scoped>
+<style scoped lang='less'>
+.van-nav-bar {
+  height: 60px;
+  line-height: 60px;
+  background: rgba(0, 0, 0, 0.8);
+}
+.van-nav-bar__title {
+  color: white;
+}
 .header {
+  z-index: 4;
   height: 60px;
   background: black;
   display: flex;
@@ -152,15 +146,12 @@ export default {
   margin-left: 125px;
   margin-top: 25px;
 }
-footer{
-  background: rgba(0, 0, 0, .1);
-  height:100px;
-}
+
 .van-submit-bar{
   bottom: 50px;
 }
 .cart{
-  height: 100vh;
+  height: 87vh;
   display: flex;
   flex-direction: column;
 }
@@ -168,30 +159,37 @@ section{
   flex:1;
   overflow: auto;
 }
+.van-tabbar-item{
+  height: 10vh;
+}
+
+
+
+
 
 
 .card-goods {
   padding: 10px 0;
   background-color: #fff;
-}
-.card-goods__item {
-  position: relative;
-  background-color: #fafafa;
-}
-.van-checkbox__label {
-  width: 100%;
-  height: auto;
-  padding: 0 10px 0 15px;
-  box-sizing: border-box;
-}
-.van-checkbox__icon {
-  top: 50%;
-  left: 10px;
-  z-index: 1;
-  position: absolute;
-  margin-top: -10px;
-}
-.van-card__price {
-  color: #f44;
+  &__item {
+    position: relative;
+    background-color: #fafafa;
+    .van-checkbox__label {
+      width: 100%;
+      height: auto; 
+      padding: 0 10px 0 15px;
+      box-sizing: border-box;
+    }
+    .van-checkbox__icon {
+      top: 50%;
+      left: 10px;
+      z-index: 1;
+      position: absolute;
+      margin-top: -10px;
+    }
+    .van-card__price {
+      color: #f44;
+    }
+  }
 }
 </style>
