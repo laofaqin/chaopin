@@ -37,3 +37,6 @@ export const POST=(url,params)=>{
 export const GET=(url,params)=>{
 	return axios.get(`${base}${url}`,{params:params}).then(res=>res)
 }
+export const DELETE=(url,params)=>{
+	return axios.delete(`${base}${url}`,{params:params}).then(res=>res)
+}
