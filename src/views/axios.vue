@@ -10,6 +10,11 @@
   <button @click='newAdress()'>新增地址</button>
   <button @click='getAdress()'>获取地址列表</button>
 
+  <!--  -->
+  <button @click='sentOrders()'>订单提交</button>
+  <button @click='getOrders()'>获取订单</button>
+  <!-- <button @click='orderDetail()'>订单详情</button> -->
+    
 
     <h2>管理</h2>
     <button @click="admin()">admin登录</button>
@@ -22,6 +27,7 @@
 
 <script>
 import api from '../api/api_try'        //此处引用你自己在src/api自定义的js文件
+import api1 from '../api/api_zhang'
 export default {
     methods:{
         login(){
@@ -33,7 +39,7 @@ export default {
             console.log(res)
             localStorage.setItem('token',res.data.token)
             console.log(res.config.data)
-            localStorage.setItem('userInfo','13333333333')
+            localStorage.setItem('userInfo','mooncup')
         })
         },
         register(){
@@ -65,7 +71,7 @@ export default {
             let data={
                 per:10,  //每一页显示的数量,默认10
                 page:1,    //当前页码,默认1
-                name:'足球',  //商品名字
+                name:'运动鞋',  //商品名字
                 productCategory:'5d5f5a56b91b9569e466e887' //分类id
             }
             api.getProList(data).then(res=>{
@@ -98,6 +104,36 @@ export default {
                 console.log(res)
             })
         },
+        // 订单提交 
+        sentOrders(){
+            let data = {
+                receiver:'哈哈哈',
+                regions:'河南省郑州市',
+                address:'高新区中鸿花园',
+                orderDetails:[{
+                    quantity:1,
+                    product:'5d5f5a56b91b9569e466e887',
+                    price:'333'
+                }]
+            }
+            api1.sentOrders(data).then(res=>{
+                console.log(res)
+            })
+        },
+
+        // 获取订单列表
+        getOrders(){
+            let params = {
+                per:10,
+                page:1
+            }
+            api1.getOrders(params).then(res=>{
+                console.log(res)
+            })
+        },
+
+        // 订单详情
+        
 
 // --------管理新系统--------------------------------
         admin(){

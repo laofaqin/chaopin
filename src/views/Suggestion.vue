@@ -10,7 +10,7 @@
         <textarea 
         name="" 
         id="txt" 
-        cols="40" 
+        cols="53" 
         rows="10" 
         placeholder="想跟我们说点什么呢?"
         >

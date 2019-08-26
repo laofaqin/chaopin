@@ -18,11 +18,12 @@
 </template>
 
 <script>
+import api from '../api/api_zhang'
 export default {
     name:'MyAddress',
     data(){
         return{
-
+            addresses:'',      
         }
     },
     methods: {
@@ -32,7 +33,17 @@ export default {
         goNewAddress(){
             this.$router.push('/NewAddress')
         }
-  }
+    },
+    mounted() {
+        let params = {
+            per:10,
+            page:1
+        }
+        api.getAddress(params).then(res=>{
+            console.log(res.data.addresses)
+            this.addresses = res.data.addresses
+        })
+    },
 }
 
 </script>
@@ -59,7 +70,7 @@ export default {
 .wddd p {
   color: whitesmoke;
   margin-top: 10px;
-  margin-left: 120px;
+  margin-left: 133px;
 }
 .arrow {
   color: whitesmoke;
@@ -123,4 +134,6 @@ export default {
     text-align: center;
     line-height: 20px;
 }
+
+
 </style>

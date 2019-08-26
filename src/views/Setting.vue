@@ -10,7 +10,7 @@
     <section>
         <div class="grxx" v-tap='{methods:goMyInfo}'>
             <van-image
-            :round='true' 
+                :round='true' 
                 cover
                 width="60px"
                 height="60px"
@@ -93,7 +93,7 @@ export default {
 .wddd p {
   color: whitesmoke;
   margin-top: 10px;
-  margin-left: 120px;
+  margin-left: 150px;
 }
 .arrow {
   color: whitesmoke;
@@ -115,7 +115,7 @@ export default {
     margin-left:10px;
 }
 .arrow0{
-    margin-left:152px;
+    margin-left:175px;
     margin-top: 35px;
     color: grey;
 }
