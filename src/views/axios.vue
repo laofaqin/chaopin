@@ -7,6 +7,8 @@
   <button @click='addCart()'>加入购物车</button>
   <button @click='proList()'>商品列表</button>
   <button @click='getInfo()'>用户信息</button>
+  <button @click='newAdress()'>新增地址</button>
+  <button @click='getAdress()'>获取地址列表</button>
 
 
     <h2>管理</h2>
@@ -76,6 +78,27 @@ export default {
                 console.log(res)
             })
         },
+
+        //新增地址
+        newAdress(){
+            let data={
+                receiver:    '老发',
+                mobile :     '184****3138',
+                regions :   ' 河南省-郑州市-二七区',
+                address : '  航海路1290号',
+                idDefault:false   //是否默认(true/false)
+            }
+            api.newAdress(data).then(res=>{
+                console.log(res)
+            })
+        },
+        // 获取地址列表
+        getAdress(){
+            api.getAdress().then(res=>{
+                console.log(res)
+            })
+        },
+
 // --------管理新系统--------------------------------
         admin(){
            api.adminLogin().then(res=>{
