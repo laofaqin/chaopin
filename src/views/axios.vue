@@ -24,7 +24,7 @@ export default {
     methods:{
         login(){
             let data = {
-                "userName":'13333333333',
+                "userName":'mooncup',
                 "password":'mooncup'
             }
             api.userLogin(data).then(res=>{
@@ -45,7 +45,7 @@ export default {
         },
         //获取商品详情
         detail(){
-            let pid='5d5e6e92b91b9569e466e852'
+            let pid='5d5f898ab91b9569e466e8b6'
             api.getDetail(pid).then(res=>{
                 console.log(res)
             })

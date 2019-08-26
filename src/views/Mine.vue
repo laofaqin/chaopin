@@ -8,7 +8,7 @@
     <div class="grxx" v-tap='{methods:goSet}'>
       <div>
         <van-image
-          round
+          :round='true'
           cover
           width="60px"
           height="60px"
@@ -96,7 +96,7 @@
             <p>联系客服</p>
             <van-icon name="arrow" class="wdkj_2"/>
         </div>
-        <!-- <div class="wdkj">
+        <!-- <div class="wdkj" v-tap='Share'>
             <van-icon name="cluster" class="wdkj_1"/>
             <p>分享好友</p>
             <van-icon name="arrow" class="wdkj_2"/>
@@ -231,7 +231,7 @@ export default {
 }
 .wdkj_1{
     margin-left:10px;
-    margin-top:10px;
+    margin-top:11px;
 }
 .wdkj p{
     font-size: 14px;

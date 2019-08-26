@@ -11,7 +11,7 @@
         <div class="tx">
           <p>头像</p>
             <van-image 
-            round 
+            :round='true' 
             width="70px" 
             height="70px" 
             src="https://img.yzcdn.cn/vant/cat.jpeg" 
