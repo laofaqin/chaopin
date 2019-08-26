@@ -24,7 +24,7 @@
 
 <script>
 import addressList from '../data/addressList'
-
+import api from '../api/api_zhang'
 export default {
 
   name: "NewAddress",
@@ -38,11 +38,20 @@ export default {
     goMyAddress() {
       this.$router.push("/MyAddress");
     },
-    onSave() {
-      Toast("save");
+    onSave(res) {
+      console.log(res)
+      let params = {
+        receiver:res.name,
+        mobile:res.tel,
+        regions:res.province+'-'+res.city+'-'+res.county,
+        idDefault:true
+      }
+      api.newAddress(params).then(data=>{
+        console.log(data)
+      })
     },
     onDelete() {
-      Toast("delete");
+      // console.log(2)
     },
     onChangeDetail(val) {
       if (val) {
@@ -56,7 +65,10 @@ export default {
         this.searchResult = [];
       }
     }
-  }
+  },
+  mounted() {
+
+  },
 }
 </script>
 

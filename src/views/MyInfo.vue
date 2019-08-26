@@ -107,7 +107,7 @@ export default {
     margin-left:10px;
 }
 .hym span{
-    margin-left:180px;
+    margin-left:225px;
     margin-top:18px;
 }
 .arrow2{
@@ -122,11 +122,9 @@ export default {
 .phone p{
     margin-left: 10px;
 }
+
 .phone span{
-    margin-left: 10px;
-}
-.phone span{
-    margin-left:165px;
+    margin-left:212px;
     margin-top:18px;
 }
 .arrow3{

@@ -14,22 +14,33 @@
         <van-tab title="已发货"></van-tab>
         <van-tab title="已收货"></van-tab>
       </van-tabs>
+
+      <van-card
+        :price="orders.price"
+        :desc="orders.descriptions"
+        :title="orders.name"
+      />
     </section>
   </div>
 </template>
 
 <script>
+import api from '../api/api_zhang'
 export default {
   name:'MyOrder',
   data(){
     return{
-      active:0
+      active:0,
+      orders:''
     }
   },
   methods: {
     goMine(){
       this.$router.push('/Mine')
     }
+  },
+  mounted() {
+       
   },
 };
 </script>
@@ -43,7 +54,7 @@ export default {
 .wddd p {
   color: whitesmoke;
   margin-top: 10px;
-  margin-left: 120px;
+  margin-left: 135px;
 }
 .arrow {
   color: whitesmoke;

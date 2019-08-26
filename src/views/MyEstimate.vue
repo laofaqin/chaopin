@@ -35,7 +35,7 @@ export default {
 .wddd p {
   color: whitesmoke;
   margin-top: 10px;
-  margin-left: 120px;
+  margin-left: 135px;
 }
 .arrow {
   color: whitesmoke;

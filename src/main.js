@@ -9,7 +9,9 @@ import 'vant/lib/index.css'
 import store from './store'
 import vueTap from 'v-tap'
 import 'lib-flexible/flexible'
+import { Toast } from 'vant';
 
+Vue.use(Toast);
 Vue.use(Vant);
 Vue.use(vueTap);
 Vue.prototype.$axios = axios;
