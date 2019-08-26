@@ -5,19 +5,19 @@
 		</div>
 		<div>
 			<ul>
-				<li>
+				<li v-tap='{methods:nike}'>
 					<img src="../img/naike.png" alt="" />
 					<span>耐克</span>
 				</li>
-				<li class="li2">
+				<li v-tap='{methods:conver}' class="li2">
 					<img src="../img/kuangwei.png" alt="" />
 					<span>匡威</span>
 				</li>
-				<li>
+				<li v-tap='{methods:adidas}'>
 					<img src="../img/adidas.png" alt="" />
 					<span>阿迪达斯</span>
 				</li>
-				<li>
+				<li v-tap='{methods:vans}'>
 					<img src="../img/vans.png" alt="" />
 					<span>vans</span>
 				</li>
@@ -31,6 +31,27 @@
 <script>	
 export default {
 	name:'shoesort',
+	methods:{
+		nike(){
+			this.$store.commit('nike')
+			this.$router.push('./Nike')
+		},
+		conver(){
+			this.$store.commit('conver')
+			this.$router.push('./Nike')
+		},
+		adidas(){
+			this.$store.commit('adidas')
+			this.$router.push('./Nike')
+		},
+		vans(){
+			this.$store.commit('vans')
+			this.$router.push('./Nike')
+		}
+	},
+	mounted(){
+			this.$store.commit('sport')
+	}
 	
 }	
 
