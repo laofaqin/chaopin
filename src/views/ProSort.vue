@@ -1,7 +1,7 @@
 <template>
   <div id="lzq-fenlei">
   		<div id="top">
-  			<p>产品分类</p>
+  			<h2>产品分类</h2>
   		</div>
   	  <div id="spfl">
   	  	<van-sidebar v-model="activeKey">
@@ -45,9 +45,10 @@ export default {
 #top{
 	width:100%;
 	height:60px;
+	line-height:30px;
 	background: black;
 }	
-#top p{
+#top h2{
 	color: white;	
 	text-align: center;
 }	
