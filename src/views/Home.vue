@@ -110,7 +110,7 @@ export default {
   width: 280px;
 }
 .cart-icon {
-  font-size: 24px;
+  font-size: 30px;
 }
 .quan {
   width: 100%;
