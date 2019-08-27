@@ -298,7 +298,11 @@ const router =  new Router({
       name:'PayOrder',
       component:()=>import('../views/PayOrder')
     },
-
+    {
+      path:'/EditAddress',
+      name:'EditAddress',
+      component:()=>import('../views/EditAddress')
+    },
 
   ]
 })
