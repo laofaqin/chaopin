@@ -298,6 +298,16 @@ const router =  new Router({
       name:'PayOrder',
       component:()=>import('../views/PayOrder')
     },
+    {
+      path:'/PinpaiList',
+      name:'PinpaiList',
+      component:()=>import('../views/PinpaiList')
+    },
+    {
+      path:'/address',
+      name:'address',
+      component:()=>import('../views/address')
+    },
 
 
   ]
