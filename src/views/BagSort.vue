@@ -59,12 +59,12 @@ export default {
 
 <style scoped>
 #shoe{
-width:290px;
+width:auto;
 }
 .sak{
 width: 245px;
 height: 120px;
-margin:20px;
+margin:20px 0px;
 }
 ul{
 display: flex;flex-wrap: wrap;
