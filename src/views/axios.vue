@@ -101,20 +101,27 @@ export default {
         // 获取地址列表
         getAdress(){
             api.getAdress().then(res=>{
-                console.log(res)
+                console.log(res.data.addresses)
             })
         },
         // 订单提交 
         sentOrders(){
             let data = {
-                receiver:'哈哈哈',
+                receiver:'哈哈h哈',
                 regions:'河南省郑州市',
                 address:'高新区中鸿花园',
-                orderDetails:[{
-                    quantity:1,
-                    product:'5d5f5a56b91b9569e466e887',
-                    price:'333'
-                }]
+                orderDetails:[
+                    {
+                        quantity:1,
+                        product:'5d5f5a56b91b9569e466e887',
+                        price:777
+                    },
+                    {
+                        quantity:5,
+                        product:'5d5f5a56b91b9569e466e  ',
+                        price:111
+                    }
+                ]
             }
             api1.sentOrders(data).then(res=>{
                 console.log(res)
