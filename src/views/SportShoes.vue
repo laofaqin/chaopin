@@ -90,7 +90,7 @@ export default {
         }
     },
     mounted(){
-        api.getProList({name:'运动鞋'}).then(res=>{
+        api.getProList({name:'运动鞋类+'}).then(res=>{
             console.log(res)
             this.list = res.data.products
         })
