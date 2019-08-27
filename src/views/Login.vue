@@ -63,6 +63,7 @@ export default {
             api.userLogin(data).then(res=>{
           	 if(res.data.code=="success"){
           	 	 this.$router.push('/home');
+          	 	  localStorage.setItem('token',res.data.token);
           	 	 localStorage.setItem("userInfo",this.value)
           	 	 alert("登录成功")
           	 }else{
