@@ -1,6 +1,12 @@
+import { stat } from "fs";
+
 var mutations={
 	change(state){
-        state.show = !state.show
+        // state.show = !state.show;
+        if(!state.show){
+            state.show=true
+        }
+        console.log(1)
     },
     nike(state){
         state.title = '耐克'
