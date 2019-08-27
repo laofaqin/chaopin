@@ -76,7 +76,10 @@ export default {
 
     }
   },
+  inject:['reload'],
+   
   methods: {
+    
     formatPrice(price) {
       return (price / 100).toFixed(2);
     },
@@ -102,18 +105,22 @@ export default {
       this.$router.push('/payOrder')
     },
     onClickRight(){
+      
       console.log('删除')
       console.log(this.checkedGoods)
+      let _this = this
       this.checkedGoods.map(function(i){
         api.deleteCart(i).then(res=>{
           console.log(res)
+          _this.reload()
         })
       })
+      
     }
   },
   mounted(){
+    
     api.getCart().then(res=>{
-      console.log(res.data)
       this.goods= res.data.map((i,n)=>{
        return {
           id:`${i._id}`,
@@ -131,6 +138,12 @@ export default {
     })
     
   },
+  updated(){
+    
+  },
+  beforeUpdate(){
+   
+  }
   
 };
 </script>
