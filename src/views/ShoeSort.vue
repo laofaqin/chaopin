@@ -62,7 +62,7 @@ export default {
 width:290px;
 }
 .sak{
-margin:20px;
+margin:20px 0px;
 }
 ul{
 display: flex;flex-wrap: wrap;
