@@ -40,10 +40,10 @@ export default {
 #lzq-fenlei{
 	display: flex;
 	flex-direction: column;
-
+	height:92vh
 }
 #top{
-	width:100%;
+	/* width:100%; */
 	height:60px;
 	line-height:30px;
 	background: black;
@@ -53,6 +53,8 @@ export default {
 	text-align: center;
 }	
 #spfl{
+	flex:1;
+	overflow: auto;
 	display:flex;
 	justify-content:flex-start; 
 }
