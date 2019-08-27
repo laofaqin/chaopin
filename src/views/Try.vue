@@ -245,7 +245,7 @@ export default {
 			},
 			// 删除购物车信息
 			deleteCart(){
-				let pid = '5d5e918926a7daceceec01fc'		//购物车里商品的id,不是商品本身的id,
+				let pid = "5d61286b26a7dacecef01613"		//购物车里商品的id,不是商品本身的id,
 				this.$axios({
 					method:'delete',
 					url:`/api/v1/shop_carts/${pid}`,
@@ -292,7 +292,19 @@ export default {
 				}).then((data)=>{
 					console.log(data) 
 				})
-			}
+			},
+			// 购物车信息
+			cartOne(){
+				this.$axios({
+					method:'get',
+					url:'/api/v1/shop_carts',
+					params:{
+						_id:'5d632af326a7dacecef08ce8'
+					}
+				}).then((data)=>{
+					console.log(data) 
+				})
+			},
   },
   mounted() {
     

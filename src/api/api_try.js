@@ -25,6 +25,21 @@ export default{
 	getProList:data=>{
 		return API.GET('/api/v1/products',data)
 	},
+	getCart:()=>{
+		return API.GET('/api/v1/shop_carts')
+	},
+	deleteCart:pid=>{
+		return API.DELETE(`/api/v1/shop_carts/${pid}`)
+	},
+	newAdress:data=>{
+		return API.POST('/api/v1/addresses',data)
+	},
+	getAdress:data=>{
+		return API.GET('/api/v1/addresses',data)
+	},
+	newOrder:data=>{
+		return API.POST('/api/v1/orders',data)
+	},
 
 	// -------后台接口--------------
 	// 登录

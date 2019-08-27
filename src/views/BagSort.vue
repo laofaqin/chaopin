@@ -5,19 +5,19 @@
 		</div>
 		<div>
 			<ul>
-				<li>
+				<li v-tap='{methods:coach}'>
 					<img src="../img/coach.png" alt="" />
 					<span>蔻驰</span>
 				</li>
-				<li class="li2">
+				<li class="li2" v-tap='{methods:mcm}'>
 					<img src="../img/mcm.png" alt="" />
 					<span>MCM</span>
 				</li>
-				<li>
+				<li v-tap='{methods:maike}'>
 					<img src="../img/maike.png" alt="" />
 					<span>迈克.科尔斯</span>
 				</li>
-				<li>
+				<li v-tap='{methods:furla}'>
 					<img src="../img/furla.png" alt="" />
 					<span>芙拉</span>
 				</li>
@@ -31,7 +31,28 @@
 <script>	
 export default {
 	name:'shoesort',
-	
+	mounted(){
+			this.$store.commit('bag');
+			console.log(222)
+	},
+	methods:{
+		coach(){
+			this.$store.commit('coach')
+			this.$router.push('./Nike')
+		},
+		mcm(){
+			this.$store.commit('mcm')
+			this.$router.push('./Nike')
+		},
+		maike(){
+			this.$store.commit('maike')
+			this.$router.push('./Nike')
+		},
+		furla(){
+			this.$store.commit('furla')
+			this.$router.push('./Nike')
+		}
+	},
 }	
 
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div id="box">
         <van-nav-bar class="sportshoes"
-            title="运动鞋"
+            title="箱包"
             left-arrow
             @click-left="onClickLeft"
             />
@@ -90,7 +90,7 @@ export default {
         }
     },
     mounted(){
-        api.getProList({name:'运动鞋'}).then(res=>{
+        api.getProList({name:'箱包'}).then(res=>{
             console.log(res)
             this.list = res.data.products
         })
