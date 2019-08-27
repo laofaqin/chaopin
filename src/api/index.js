@@ -31,10 +31,12 @@ axios.interceptors.response.use(function (response) {
 export const POST=(url,params)=>{
 	return axios.post(`${base}${url}`,params).then(res=>res)
 }
-
 export const GET=(url,params)=>{
 	return axios.get(`${base}${url}`,{params:params}).then(res=>res)
 }
 export const DELETE=(url,params)=>{
 	return axios.delete(`${base}${url}`,{params:params}).then(res=>res)
+}
+export const PUT=(url,params)=>{
+	return axios.put(`${base}${url}`,params).then(res=>res)
 }

@@ -308,7 +308,12 @@ const router =  new Router({
       name:'address',
       component:()=>import('../views/address')
     },
+    {
 
+      path:'/EditAddress',
+      name:'EditAddress',
+      component:()=>import('../views/EditAddress')
+    },
 
   ]
 })

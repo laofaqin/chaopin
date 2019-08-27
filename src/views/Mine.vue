@@ -202,7 +202,7 @@ export default {
 }
 .ddjt_1{
     margin-left:10px;
-    margin-top:12px;
+    margin-top:14px;
 }
 .ddjt_2{
     margin-left:5px;
@@ -231,7 +231,7 @@ export default {
 }
 .wdkj_1{
     margin-left:10px;
-    margin-top:11px;
+    margin-top:13px;
 }
 .wdkj p{
     font-size: 14px;

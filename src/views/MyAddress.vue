@@ -7,7 +7,14 @@
       </div>
     </header>
     <section>
-        
+        <!-- <button v-tap='{methods:getAddress}'>获取地址</button> -->
+        <van-address-list
+            v-model="chosenAddressId"
+            :list="list"
+            @add="onAdd"
+            @edit="onEdit"
+        />
+
     </section>
     <footer>
         <div class="footer" v-tap='{methods:goNewAddress}'>
@@ -23,16 +30,44 @@ export default {
     name:'MyAddress',
     data(){
         return{
-            addresses:'',      
+            addresses:'',
+            chosenAddressId: '1',
+      list: [
+        // {
+        //   id: '1',
+        //   name: '张三',
+        //   tel: '13000000000',
+        //   address: '浙江省杭州市西湖区文三路 138 号东方通信大厦 7 楼 501 室'
+        // },
+        // {
+        //   id: '2',
+        //   name: '李四',
+        //   tel: '1310000000',
+        //   address: '浙江省杭州市拱墅区莫干山路 50 号'
+        // }
+      ]
+       
         }
     },
     methods: {
-        goSetting(){
+        goSetting(){ 
             this.$router.push('/Mine')
         },
         goNewAddress(){
             this.$router.push('/NewAddress')
-        }
+        },
+        onAdd() {
+            Toast('新增地址');
+        },
+        onEdit(event) {
+            this.$router.push('/EditAddress')
+            let address_id = event.id
+            // console.log(address_id)
+            localStorage.setItem('address-id',address_id)
+            // api.getOneAddress(address_id).then(res=>{
+            //     console.log(res)
+            // })
+        },
     },
     mounted() {
         let params = {
@@ -40,8 +75,18 @@ export default {
             page:1
         }
         api.getAddress(params).then(res=>{
-            console.log(res.data.addresses)
-            this.addresses = res.data.addresses
+            //console.log(res.data.addresses)
+            let addressList = res.data.addresses.map(function(item,i){
+                return {
+                    id: `${item._id}`,
+                    name: `${item.receiver}`,
+                    tel: `${item.mobile}`,
+                    address: `${item.regions}${item.address}`
+                }
+            })
+            //console.log(arr)
+            this.list = addressList
+            // console.log(this.list)
         })
     },
 }
@@ -61,6 +106,15 @@ export default {
 }
 .van-nav-bar__title{
     color: whitesmoke;
+}
+.van-button--danger{
+    display: none;
+}
+.van-icon-delete{
+    color:whitesmoke;
+    font-size: 16px;
+    margin-left:135px;
+    margin-top:12px;
 }
 .wddd {
   height: 40px;
