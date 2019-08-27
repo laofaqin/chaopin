@@ -84,7 +84,21 @@ export default {
       this.$store.state.orderId = this.checkedGoods;
       localStorage.setItem('orderId',JSON.stringify(this.checkedGoods))
       console.log(this.$store.state.orderList)
+      let orderList = this.$store.state.orderList
       console.log(this.$store.state.sum)
+        let orderId = JSON.parse(localStorage.getItem('orderId'));
+
+       let order = [];
+        for(let i in orderId){
+            for(let j in orderList){
+                if(orderId[i]==orderList[j].id){
+                    order.push(orderList[j])
+                }
+            }
+        }
+        console.log(order)
+        this.$store.state.order = order
+      
       this.$router.push('/payOrder')
     },
     onClickRight(){
