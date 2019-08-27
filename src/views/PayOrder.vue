@@ -33,6 +33,8 @@
 
 <script>
 import api from '../api/api_try'
+import {Toast} from 'vant'
+
 export default {
     data(){
         return{
@@ -45,7 +47,9 @@ export default {
                 // address: '浙江省杭州市西湖区文三路 138 号东方通信大厦 7 楼 501 室'
                 // }
             ],
-            order:[]
+            order:[],
+            orderData:[],
+            orderDetail:''
            
         }
     },
@@ -54,66 +58,75 @@ export default {
             console.log('fanhui')
             this.$router.go(-1)
         },
-        onAdd() {
-            Toast('新增地址');
-            },
+      
 
         onEdit(item, index) {
         console.log('跳转到地址')
         },
         onSubmit(){
             console.log('提交订单')
+            let data = {
+                receiver: this.$store.state.orderData.receiver,    
+                regions:this.$store.state.orderData.regions   ,
+                address:this.$store.state.orderData.address     ,
+                orderDetails:this.$store.state.orderDetail
+                
+            }
+            console.log(data)
             api.newOrder(data).then(res=>{
                 console.log(res)
+                if(res.data.code=='success'){
+                    alert(res.data.message)
+                }
             })
         }
     },
     mounted(){
-        console.log(this.$store.state.orderId)
-        console.log(this.$store.state.orderList)
-        let orderId = JSON.parse(localStorage.getItem('orderId'));
+        
+        // let orderId = JSON.parse(localStorage.getItem('orderId'));
         let orderList = JSON.parse(localStorage.getItem('orderList'))
-        console.log(orderId)
+        // console.log(orderId)
         console.log(orderList)
-        let order = [];
-        for(let i in orderId){
-            for(let j in orderList){
-                if(orderId[i]==orderList[j].id){
-                    order.push(orderList[j])
-                }
+        // let order = [];
+        // for(let i in orderId){
+        //     for(let j in orderList){
+        //         if(orderId[i]==orderList[j].id){
+        //             order.push(orderList[j])
+        //         }
+        //     }
+        // }
+        // console.log(order)
+            // this.order = order
+            this.order = this.$store.state.order
+            console.log(this.order)
+
+        
+        this.$store.state.orderDetail = this.order.map(function(item,i){
+            return {
+                quantity:Number(item.num),  
+                product:`${item.pid}`,  
+                price:Number((item.price / 100).toFixed(2))   
             }
-        }
-        console.log(order)
-        this.order = order
+        })
         api.getAdress().then(res=>{
-            console.log(res)
-            console.log(res.data.addresses[0].address)
             this.list = [{
                 id: '1',
                 name: `${res.data.addresses[0].receiver}`,
                 tel:`${res.data.addresses[0].mobile}`,
                 address: `${res.data.addresses[0].regions}${res.data.addresses[0].address}`
             }]
-
-        })
-        let orderDetail = order.map(function(item,i){
-            return `{
-                quantity:${item.num},  
-                product:${item.pid},  
-                price:${item.price}   
-            }`
-        })
-        console.log(orderDetail+'nihao')
-        let data = {
+            this.$store.state.orderData = {
              receiver:`${res.data.addresses[0].receiver}`,      //收货人
             regions:`${res.data.addresses[0].regions}`,       //收货的省市区县
-            address: `${res.data.addresses[0].address}`,      //收货地址
-            orderDetails:
-            [orderDetail]
-        }
-        console.log(data)
+            address: `${res.data.addresses[0].address}`, 
+            }     //收货地址
+        })
+        
+        
+        
 
-    }
+    },  
+    
 }
 </script>
 
