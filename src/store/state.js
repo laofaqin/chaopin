@@ -4,7 +4,9 @@ var state={
 	proSortName:'运动鞋',
 	orderList:[],
 	orderId:[],
-	sum:''
+	sum:'',
+	orderData:[],
+	order:''
 }
 
 export default state;
