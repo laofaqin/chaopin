@@ -13,6 +13,7 @@
             :list="list"
             @add="onAdd"
             @edit="onEdit"
+            @click-item='go'
         />
 
     </section>
@@ -58,6 +59,11 @@ export default {
         },
         onAdd() {
             Toast('新增地址');
+        },
+        go(e){
+            console.log(e.id)
+            this.$store.state.defaultAddress = e.id
+            
         },
         onEdit(event) {
             this.$router.push('/EditAddress')
