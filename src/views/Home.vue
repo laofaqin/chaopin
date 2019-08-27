@@ -10,7 +10,7 @@
 
     <div>
       <!-- 轮播图 -->
-      <van-swipe :autoplay="2000" indicator-color="white" :height="200">
+      <van-swipe :autoplay="2000" indicator-color="white" :height="200" v-tap='{methods:goList}'>
         <van-swipe-item>
           <img class="lunbo" src="..\img\qiaodan-2.jpg" alt />
         </van-swipe-item>
@@ -55,8 +55,8 @@
       </div>
 
       <div class="pinpai">
-          <img src="..\img\Screenshot_20190822-164045_02.jpg" alt="">
-          <img src="..\img\Screenshot_20190822-164045_04.jpg" alt="">
+          <img src="..\img\Screenshot_20190822-164045_02.jpg" alt="" v-tap="{methods:goList}">
+          <img src="..\img\Screenshot_20190822-164045_04.jpg" alt="" v-tap="{methods:goList}">
       </div>
     </div>
   </div>
@@ -94,6 +94,9 @@ export default {
     },
     goCut() {
       this.$router.push("/GetCut");
+    },
+    goList(){
+      this.$router.push("/PinpaiList")
     }
   }
 };
