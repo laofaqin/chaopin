@@ -1,6 +1,6 @@
 <template>
     <van-sku
-        v-model="this.$store.state.show"
+        v-model="show"
         :sku="sku"
         :goods="goods"
         :close-on-click-overlay='true'
@@ -13,10 +13,10 @@
 <script>
 
 import api from '../api/api_try'
+import {mapState} from 'vuex'
 export default {
     data() {
         return {
-            // show:this.$store.state.show,
             sku: {
                 // 所有sku规格类目与其值的从属关系，比如商品有颜色和尺码两大类规格，颜色下面又有红色和蓝色两个规格值。
                 // 可以理解为一个商品可以有多个规格类目，一个规格类目下可以有多个规格值。
@@ -95,10 +95,13 @@ export default {
             }
         };
     },
+    computed:{
+        ...mapState(['show'])
+    },
     methods:{
         onBuyClicked(){
             console.log('立即购买')
-            
+            this.$router.push('/PayOrder')
         },
         onAddCartClicked(){
             console.log('加入购物车')
@@ -123,10 +126,25 @@ export default {
             this.goods.picture = res.data.coverImg;
             this.sku.price = res.data.price;
             this.sku.stock_num  = res.data.quantity;
-        this.sku.list[0].price = res.data.price*100
+            this.sku.list[0].price = res.data.price*100;
+
+            this.$store.state.orderDetail = [{
+                quantity:1,  
+                product:res.data._id,  
+                price: res.data.price
+            }]
+
+            this.$store.state.order = [{
+                title:res.data.descriptions,
+                num:1,
+                price:res.data.price*100,
+                thumb:res.data.coverImg
+            }]
+
+            this.$store.state.sum = res.data.price*100
+
         })
-        // console.log(this.$store.state.show)
-    }
+    },
 }
 </script>
 
