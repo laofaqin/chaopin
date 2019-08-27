@@ -41,29 +41,23 @@ export default {
     onSave(res) {
       console.log(res)
       let params = {
+        address:res.addressDetail,
         receiver:res.name,
         mobile:res.tel,
         regions:res.province+'-'+res.city+'-'+res.county,
         idDefault:true
       }
       api.newAddress(params).then(data=>{
-        console.log(data)
+        // console.log(data)
+            this.$toast("添加成功");
+            this.$router.go(-1)
       })
     },
     onDelete() {
       // console.log(2)
     },
     onChangeDetail(val) {
-      if (val) {
-        this.searchResult = [
-          {
-            name: "",
-            address: ""
-          }
-        ];
-      } else {
-        this.searchResult = [];
-      }
+      
     }
   },
   mounted() {
