@@ -7,7 +7,7 @@
             />
         <section>
             <nav >
-			<img style="width:100%" src="../img/Screenshot_20190822-164045_02.jpg" alt="" />
+				<img style="width:100%" src="../img/Screenshot_20190822-164045_02.jpg" alt="" />
 		    </nav>
             <van-tabs v-model="active">
                 <van-tab title="默认">
@@ -50,7 +50,7 @@
                         :thumb="item.coverImg"
                         >
                         <span slot='origin-price'>￥10000</span>
-                        </van-card>
+                    </van-card>
                 </van-tab>
                 <van-tab title="折扣">
                     <van-card 
