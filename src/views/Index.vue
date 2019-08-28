@@ -5,10 +5,10 @@
 		</div>
 		
 		<van-tabbar v-model="active">
-		  <van-tabbar-item icon="wap-home" to="/Home">首页</van-tabbar-item>
-		  <van-tabbar-item icon="apps-o" to="/ProSort">分类</van-tabbar-item>
-		  <van-tabbar-item icon="shopping-cart-o" @click='cart()'>购物车</van-tabbar-item>
-		  <van-tabbar-item icon="user-o" @click='setting()'>我的</van-tabbar-item>
+		  <van-tabbar-item name='home' icon="wap-home" to="/Home">首页</van-tabbar-item>
+		  <van-tabbar-item name='prosort' icon="apps-o" to="/ProSort">分类</van-tabbar-item>
+		  <van-tabbar-item name='cart' icon="shopping-cart-o" @click='cart()'>购物车</van-tabbar-item>
+		  <van-tabbar-item name='setting' icon="user-o" @click='setting()'>我的</van-tabbar-item>
 		</van-tabbar>		
 	</div>
 </template>
@@ -17,7 +17,7 @@
 		name:'Index',
 		data(){
 			return{
-				active:0,
+				active:this.$store.state.active,
 				title:'首页'
 			}
 		},
@@ -27,7 +27,8 @@
 			},
 			cart(){
 				if(localStorage.getItem("userInfo")){
-					this.$router.push('/Cart');					
+					this.$router.push('/Cart');	
+									
 				}else{
 					this.$router.push('/login');					
 				}
