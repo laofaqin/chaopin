@@ -1,12 +1,13 @@
 var state={
 	show:false,
 	title:'',
-	proSortName:'运动鞋',
+	proSortName:'运动鞋类+',
 	orderList:[],
 	orderId:[],
 	sum:'',
 	orderData:[],
-	order:''
+	order:'',
+	defaultAddress:''
 }
 
 export default state;

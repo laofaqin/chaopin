@@ -21,7 +21,7 @@ var mutations={
         state.title = 'vans'
     },
     sport(state){
-        state.proSortName = '运动鞋'
+        state.proSortName = '鞋靴类+'
     },
     bag(state){
         state.proSortName = '箱包'

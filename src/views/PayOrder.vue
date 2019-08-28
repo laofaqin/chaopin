@@ -9,6 +9,7 @@
             <van-address-list
                 :list="list"
                 @edit="onEdit"
+                
             />
             <div>
                 <p style="width:100%;border-bottom:1px solid black;height:24px;padding-left:10px;   ">商品详情</p>
@@ -33,6 +34,7 @@
 
 <script>
 import api from '../api/api_try'
+import api2 from '../api/api_zhang'
 import {Toast} from 'vant'
 
 export default {
@@ -55,16 +57,17 @@ export default {
     },
     methods:{
         onClickLeft() {
-            console.log('fanhui')
+            // console.log('fanhui')
             this.$router.go(-1)
         },
       
 
         onEdit(item, index) {
-        console.log('跳转到地址')
+            // console.log('跳转到地址')
+            this.$router.push('/MyAddress')
         },
         onSubmit(){
-            console.log('提交订单')
+            // console.log('提交订单')
             let data = {
                 receiver: this.$store.state.orderData.receiver,    
                 regions:this.$store.state.orderData.regions   ,
@@ -72,9 +75,9 @@ export default {
                 orderDetails:this.$store.state.orderDetail
                 
             }
-            console.log(data)
+            // console.log(data)
             api.newOrder(data).then(res=>{
-                console.log(res)
+                // console.log(res)
                 if(res.data.code=='success'){
                     alert(res.data.message)
                 }
@@ -83,22 +86,9 @@ export default {
     },
     mounted(){
         
-        // let orderId = JSON.parse(localStorage.getItem('orderId'));
         let orderList = JSON.parse(localStorage.getItem('orderList'))
-        // console.log(orderId)
-        console.log(orderList)
-        // let order = [];
-        // for(let i in orderId){
-        //     for(let j in orderList){
-        //         if(orderId[i]==orderList[j].id){
-        //             order.push(orderList[j])
-        //         }
-        //     }
-        // }
-        // console.log(order)
-            // this.order = order
             this.order = this.$store.state.order
-            console.log(this.order)
+            // console.log(this.order)
 
         
         this.$store.state.orderDetail = this.order.map(function(item,i){
@@ -108,20 +98,39 @@ export default {
                 price:Number((item.price / 100).toFixed(2))   
             }
         })
-        api.getAdress().then(res=>{
-            this.list = [{
-                id: '1',
-                name: `${res.data.addresses[0].receiver}`,
-                tel:`${res.data.addresses[0].mobile}`,
-                address: `${res.data.addresses[0].regions}${res.data.addresses[0].address}`
-            }]
-            this.$store.state.orderData = {
-             receiver:`${res.data.addresses[0].receiver}`,      //收货人
-            regions:`${res.data.addresses[0].regions}`,       //收货的省市区县
-            address: `${res.data.addresses[0].address}`, 
-            }     //收货地址
-        })
         
+        if(this.$store.state.defaultAddress){
+            // console.log('1')
+            api2.getOneAddress(this.$store.state.defaultAddress).then(res=>{
+                // console.log(res.data)
+                this.list = [{
+                    id: '1',
+                    name: `${res.data.receiver}`,
+                    tel:`${res.data.mobile}`,
+                    address: `${res.data.regions}${res.data.address}`
+                }]
+                this.$store.state.orderData = {
+                receiver:`${res.data.receiver}`,      //收货人
+                regions:`${res.data.regions}`,       //收货的省市区县
+                address: `${res.data.address}`, 
+                }  
+            })
+        }else{
+            // console.log(2)
+            api.getAdress().then(res=>{
+                this.list = [{
+                    id: '1',
+                    name: `${res.data.addresses[0].receiver}`,
+                    tel:`${res.data.addresses[0].mobile}`,
+                    address: `${res.data.addresses[0].regions}${res.data.addresses[0].address}`
+                }]
+                this.$store.state.orderData = {
+                receiver:`${res.data.addresses[0].receiver}`,      //收货人
+                regions:`${res.data.addresses[0].regions}`,       //收货的省市区县
+                address: `${res.data.addresses[0].address}`, 
+                }     //收货地址
+            })
+        }
         
         
 
