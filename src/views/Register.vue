@@ -40,7 +40,7 @@ import api from '../api/api_try'
 	export default{
 		name:'register',
 		data(){
-			return{
+			return{ 
 				username:'',
 				password:''
 			}
@@ -56,9 +56,9 @@ import api from '../api/api_try'
 	            };
 	            api.userReg(data).then(res=>{
 	               if(res.data.message=="用户名已存在！"){
-	               	alert("用户名已存在！")
+	               	this.$toast("用户名已存在！")
 	               }else{
-	               	alert("注册成功")
+	               	this.$toast("注册成功")
 	               	this.$router.push('/login');					
 	               }
 	            })

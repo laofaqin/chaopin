@@ -60,6 +60,7 @@ export default {
         },
         removeInfo(){
             this.userInfo = localStorage.removeItem('userInfo')
+            this.$toast('退出成功')
             this.$router.push('/Home')
         }
   },

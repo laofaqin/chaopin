@@ -64,10 +64,10 @@ export default {
           	 if(res.data.code=="success"){
           	 	 this.$router.push('/home');
           	 	  localStorage.setItem('token',res.data.token);
-          	 	 localStorage.setItem("userInfo",this.value)
-          	 	 alert("登录成功")
+          	 	  localStorage.setItem("userInfo",this.value)
+          	 	 this.$toast("登录成功")
           	 }else{
-          	 	alert("用户名或密码错误")
+          	 	this.$toast("用户名或密码错误")
           	 }
         })
         },

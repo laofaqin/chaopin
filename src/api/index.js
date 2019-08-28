@@ -26,8 +26,7 @@ axios.interceptors.response.use(function (response) {
   });
 
 
-
-
+  
 export const POST=(url,params)=>{
 	return axios.post(`${base}${url}`,params).then(res=>res)
 }
