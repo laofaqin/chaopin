@@ -37,7 +37,7 @@ export default {
     		if(this.value){
     			this.$router.push("/SportShoes");
     		}else{   			
-    			alert("请输入内容")
+    			this.$toast("请输入内容")
     		}
     	}
     }
