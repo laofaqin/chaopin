@@ -90,7 +90,7 @@ export default {
         }
     },
     mounted(){
-        api.getProList({name:'名表'}).then(res=>{
+        api.getProList({name:'名表',per:100}).then(res=>{
             console.log(res)
             this.list = res.data.products
         })
