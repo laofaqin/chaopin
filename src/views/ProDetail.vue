@@ -189,9 +189,6 @@ export default {
       this.$router.go(-1);
     },
     buy(){
-      // this.$store.commit('change')
-      // this.$store.state.show = false;
-      // this.$store.state.show = true;
       this.show = true
 
       console.log(333)
@@ -201,11 +198,28 @@ export default {
       Toast("暂无后续逻辑~");
     },
     shoucang(){
-        Toast("收藏成功");
+       if(localStorage.getItem('fav')){
+          let detail = localStorage.getItem('detail')
+          let arr = JSON.parse(localStorage.getItem('fav'))
+          if(arr.indexOf(detail)==-1){
+            arr.push(localStorage.getItem('detail'))
+          }
+          localStorage.setItem('fav',JSON.stringify(arr))
+          Toast("收藏成功");
+        }else{
+          console.log(3)
+          let arr = [];
+          let detail = localStorage.getItem('detail')
+          arr.push(localStorage.getItem('detail'))
+          console.log(arr)
+          localStorage.setItem('fav',JSON.stringify(arr))
+          Toast("收藏成功");
+        }
+        
     },
     onBuyClicked(){
             console.log('立即购买')
-            this.$router.push('/PayOrder')
+            this.$router.push('/PayOrder2')
         },
         onAddCartClicked(){
             console.log('加入购物车')
