@@ -40,7 +40,7 @@ import api from '../api/api_try'
 	export default{
 		name:'register',
 		data(){
-			return{
+			return{ 
 				username:'',
 				password:''
 			}
