@@ -67,7 +67,8 @@ export default {
   data() {
     return {
       value: "",
-      color: "yellow"
+      color: "yellow",
+      active:''
     };
   },
   methods: {
@@ -76,6 +77,8 @@ export default {
     },
     goCart() {
       this.$router.push("/Cart");
+      this.$store.state.active = 'cart'
+      this.active = 'cart'
     },
     goShoes() {
       this.$router.push("/SportShoes");
