@@ -7,7 +7,9 @@ var state={
 	sum:'',
 	orderData:[],
 	order:'',
-	defaultAddress:''
+	defaultAddress:'',
+	active:'home',
+	favList:[]
 }
 
 export default state;
