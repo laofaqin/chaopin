@@ -134,7 +134,7 @@ export default {
             this.$router.push('/MyPrice')
         },
         goMyCollect(){
-            this.$router.push('/MyCollect')
+            this.$router.push('/MyFav')
         },
         goMyEstimate(){
             this.$router.push('/MyEstimate')
