@@ -80,18 +80,18 @@ export default {
     },
     methods:{
         onClickLeft() {
-            console.log('fanhui')
+            // console.log('fanhui')
             this.$router.go(-1)
         },
         goDetail(res){
-            console.log(res.event.currentTarget.id)
+            // console.log(res.event.currentTarget.id)
             localStorage.setItem('detail',res.event.currentTarget.id)
             this.$router.push('/ProDetail')
         }
     },
     mounted(){
-        api.getProList({name:'箱包'}).then(res=>{
-            console.log(res)
+        api.getProList({name:'箱包',per:100}).then(res=>{
+            // console.log(res)
             this.list = res.data.products
         })
     }
