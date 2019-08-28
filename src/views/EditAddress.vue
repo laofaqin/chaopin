@@ -42,7 +42,7 @@ export default {
   },
   methods: {
     goMyAddress() {
-      this.$router.push("/MyAddress");
+      this.$router.go(-1);
     },
     onSave(res) {
         // console.log(res)
