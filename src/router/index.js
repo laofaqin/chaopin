@@ -189,9 +189,17 @@ const router =  new Router({
       }
     },
     {
-      path:'/MyCollect',
-      name:'MyCollect',
-      component:() => import('../views/MyCollect'),
+      path:'/MyFav',
+      name:'MyFav',
+      component:() => import('../views/MyFav'),
+      meta:{
+        title:'我的收藏'
+      }
+    },
+    {
+      path:'/MyFav2',
+      name:'MyFav2',
+      component:() => import('../views/MyFav2'),
       meta:{
         title:'我的收藏'
       }
@@ -208,6 +216,14 @@ const router =  new Router({
       path:'/MyAddress',
       name:'MyAddress',
       component:() => import('../views/MyAddress'),
+      meta:{
+        title:'我的地址'
+      }
+    },
+    {
+      path:'/MyAddress2',
+      name:'MyAddress2',
+      component:() => import('../views/MyAddress2'),
       meta:{
         title:'我的地址'
       }
@@ -299,6 +315,11 @@ const router =  new Router({
       component:()=>import('../views/PayOrder')
     },
     {
+      path:'/PayOrder2',
+      name:'PayOrder2',
+      component:()=>import('../views/PayOrder2')
+    },
+    {
       path:'/PinpaiList',
       name:'PinpaiList',
       component:()=>import('../views/PinpaiList')
@@ -313,6 +334,16 @@ const router =  new Router({
       path:'/EditAddress',
       name:'EditAddress',
       component:()=>import('../views/EditAddress')
+    },
+    {
+      path:'/MyFav',
+      name:'MyFav',
+      component:()=>import('../views/MyFav')
+    },
+    {
+      path:'/MyFav2',
+      name:'MyFav2',
+      component:()=>import('../views/MyFav2')
     },
 
   ]
