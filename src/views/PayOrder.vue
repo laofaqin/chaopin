@@ -58,13 +58,13 @@ export default {
     methods:{
         onClickLeft() {
             // console.log('fanhui')
-            this.$router.go(-1)
+            this.$router.push('/Cart')
         },
       
 
         onEdit(item, index) {
             // console.log('跳转到地址')
-            this.$router.push('/MyAddress')
+            this.$router.push('/MyAddress2')
         },
         onSubmit(){
             // console.log('提交订单')
