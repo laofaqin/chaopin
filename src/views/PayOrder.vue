@@ -79,7 +79,7 @@ export default {
             api.newOrder(data).then(res=>{
                 // console.log(res)
                 if(res.data.code=='success'){
-                    alert(res.data.message)
+                   this.$toast(res.data.message)
                 }
             })
         }
