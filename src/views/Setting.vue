@@ -68,6 +68,13 @@ export default {
       this.userInfo = localStorage.getItem("userInfo")
       //console.log(localStorage.getItem("userInfo"))
   },
+  beforeMount(){
+				if(localStorage.getItem("userInfo")){
+					this.$router.push('/Mine');					
+				}else{
+					this.$router.push('/login');
+				}
+  }
 }
 
 </script>
