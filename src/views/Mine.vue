@@ -152,6 +152,15 @@ export default {
     mounted() {
       this.userInfo = localStorage.getItem("userInfo")        
     },
+    beforeMount(){
+				if(localStorage.getItem("userInfo")){
+					this.$router.push('/Mine');	
+									
+				}else{
+					this.$router.push('/login');					
+				}
+			
+  },
 }
 </script>
 
