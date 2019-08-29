@@ -84,13 +84,11 @@ export default {
   methods: {
     change(){
       if(this.checked==false){
-        // console.log('选中')
         this.goods.map((item)=>{
           this.checkedGoods.push(item.id)
         })
       }else{
         this.checkedGoods=[]
-        // console.log('取消')
       }
     },
     formatPrice(price) {
@@ -99,9 +97,7 @@ export default {
     onSubmit() {
       this.$store.state.orderId = this.checkedGoods;
       localStorage.setItem('orderId',JSON.stringify(this.checkedGoods))
-      // console.log(this.$store.state.orderList)
       let orderList = this.$store.state.orderList
-      // console.log(this.$store.state.sum)
         let orderId = JSON.parse(localStorage.getItem('orderId'));
        let order = [];
         for(let i in orderId){
@@ -111,19 +107,15 @@ export default {
                 }
             }
         }
-        // console.log(order)
         this.$store.state.order = order
       
       this.$router.push('/payOrder')
     },
     onClickRight(){
       
-      // console.log('删除')
-      // console.log(this.checkedGoods)
       let _this = this
       this.checkedGoods.map(function(i){
         api.deleteCart(i).then(res=>{
-          // console.log(res)
           _this.reload()
         })
       })
@@ -132,7 +124,6 @@ export default {
   },
   mounted(){
     if(this.checked==true){
-      // console.log(222)
     }
     api.getCart().then(res=>{
       this.goods= res.data.map((i,n)=>{
@@ -147,7 +138,6 @@ export default {
         }
       })
       this.$store.state.orderList = this.goods
-      // console.log(this.goods)
       localStorage.setItem('orderList',JSON.stringify(this.goods))
     })
     
