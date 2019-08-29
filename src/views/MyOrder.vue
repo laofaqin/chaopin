@@ -1,10 +1,11 @@
 <template>
-  <div>
+  <div class="box">
     <header>
-      <div class="wddd">
-        <van-icon name="arrow-left" class="arrow" v-tap='{methods:goMine}'/>
-        <p>我的订单</p>
-      </div>
+       <van-nav-bar class="sportshoes"
+            title="我的订单"
+            left-arrow
+            @click-left="goMine"
+            />
     </header>
     <section>
       <van-tabs  v-model="active">
@@ -65,15 +66,30 @@ export default {
 </script>
 
 <style scoped>
-.wddd {
-  height: 40px;
-  background: black;
+.box{
+  height:100vh;
   display: flex;
+  flex-direction: column;
+
 }
-.wddd p {
-  color: whitesmoke;
-  margin-top: 10px;
-  margin-left: 135px;
+header{
+  height:50px;
+}
+section{
+  flex:1;
+  overflow:auto;
+}
+.van-nav-bar{
+    background: black;
+}
+.van-icon-arrow-left{
+    color:whitesmoke;
+}
+.van-nav-bar__text{
+    color: black;
+}
+.van-nav-bar__title{
+    color: whitesmoke;
 }
 .arrow {
   color: whitesmoke;
