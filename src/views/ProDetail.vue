@@ -198,8 +198,11 @@ export default {
       this.$router.go(-1);
     },
     buy(){
-      this.show = true
-
+      if(localStorage.getItem("userInfo")){
+					this.show = true				
+				}else{
+          this.$router.push('/login');
+				}
       // console.log(333)
 
     },
