@@ -52,7 +52,7 @@ export default {
     },
     methods: {
         goSetting(){ 
-            this.$router.push('/Mine')
+            this.$router.go(-1)
         },
         goNewAddress(){
             this.$router.push('/NewAddress')
