@@ -73,6 +73,15 @@ import {
   GoodsActionButton
 } from "vant";
 export default {
+  beforeRouteEnter(to,from,next){
+    if (from.name === 'PayOrder2') {
+      next(vm=>{
+        vm.$router.go(-2)
+      })
+    }else{
+      next()
+    }
+  },
   components: {
     [Tag.name]: Tag,
     [Col.name]: Col,
@@ -191,7 +200,7 @@ export default {
     buy(){
       this.show = true
 
-      console.log(333)
+      // console.log(333)
 
     },
     sorry() {
@@ -207,41 +216,41 @@ export default {
           localStorage.setItem('fav',JSON.stringify(arr))
           Toast("收藏成功");
         }else{
-          console.log(3)
+          // console.log(3)
           let arr = [];
           let detail = localStorage.getItem('detail')
           arr.push(localStorage.getItem('detail'))
-          console.log(arr)
+          // console.log(arr)
           localStorage.setItem('fav',JSON.stringify(arr))
           Toast("收藏成功");
         }
         
     },
     onBuyClicked(){
-            console.log('立即购买')
-            this.$router.push('/PayOrder2')
+            // console.log('立即购买')
+            this.$router.push('/PayOrder')
         },
         onAddCartClicked(){
-            console.log('加入购物车')
+            // console.log('加入购物车')
             let data = {
                 product:localStorage.getItem('detail') ,  //商品id
                 quantity:this.skuData.selectedNum        //数量(默认值1)
             }
-            console.log(this.skuData.selectedNum)
+            // console.log(this.skuData.selectedNum)
             api.addCart(data).then(res=>{
-                console.log(res)
+                // console.log(res)
             this.show = false;
             })
     },
     close(){
         // this.$store.commit('change')
-        console.log('关闭')
+        // console.log('关闭')
     }
   },
 
   mounted() {
     api.getDetail(localStorage.getItem("detail")).then(res => {
-      console.log(res);
+      // console.log(res);
       this.goods.title = res.data.descriptions;
       this.goods.remain = res.data.quantity;
       this.goods.price = res.data.price * 100;
@@ -250,7 +259,7 @@ export default {
       
     });
     api.getDetail(localStorage.getItem("detail")).then(res => {
-        console.log(res)
+        // console.log(res)
         this.goods.picture = res.data.coverImg;
         this.sku.price = res.data.price;
         this.sku.stock_num  = res.data.quantity;
