@@ -1,9 +1,12 @@
 <template>
   <div>
     <header>
-      <div class="wddd">
-        <van-icon name="arrow-left" class="arrow" v-tap="{methods:goMyAddress}" />
-        <p>新增地址</p>
+      <div class="">
+        <van-nav-bar class="sportshoes"
+            title="新增地址"
+            left-arrow
+            @click-left="goMyAddress"
+            />
       </div>
     </header>
     <section>
@@ -67,15 +70,17 @@ export default {
 </script>
 
 <style scoped>
-.wddd {
-  height: 40px;
-  background: black;
-  display: flex;
+.van-nav-bar{
+    background: black;
 }
-.wddd p {
-  color: whitesmoke;
-  margin-top: 10px;
-  margin-left: 120px;
+.van-icon-arrow-left{
+    color:whitesmoke;
+}
+.van-nav-bar__text{
+    color: black;
+}
+.van-nav-bar__title{
+    color: whitesmoke;
 }
 .arrow {
   color: whitesmoke;
