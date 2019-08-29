@@ -1,9 +1,12 @@
 <template>
   <div>
     <header>
-      <div class="wddd">
-        <van-icon name="arrow-left" class="arrow" v-tap='{methods:goSetting}'/>
-        <p>我的地址</p>
+      <div class="">
+        <van-nav-bar class="sportshoes"
+            title="我的地址"
+            left-arrow
+            @click-left="goSetting"
+            />
       </div>
     </header>
     <section>
@@ -122,16 +125,7 @@ export default {
     margin-left:135px;
     margin-top:12px;
 }
-.wddd {
-  height: 40px;
-  background: black;
-  display: flex;
-}
-.wddd p {
-  color: whitesmoke;
-  margin-top: 10px;
-  margin-left: 133px;
-}
+
 .arrow {
   color: whitesmoke;
   margin-left: 12px;

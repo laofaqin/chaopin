@@ -197,6 +197,14 @@ const router =  new Router({
       }
     },
     {
+      path:'/MyFav2',
+      name:'MyFav2',
+      component:() => import('../views/MyFav2'),
+      meta:{
+        title:'我的收藏'
+      }
+    },
+    {
       path:'/MyEstimate',
       name:'MyEstimate',
       component:() => import('../views/MyEstimate'),
@@ -313,11 +321,6 @@ const router =  new Router({
       path:'/EditAddress',
       name:'EditAddress',
       component:()=>import('../views/EditAddress')
-    },
-    {
-      path:'/MyFav',
-      name:'MyFav',
-      component:()=>import('../views/MyFav')
     },
   ]
 })
