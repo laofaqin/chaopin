@@ -122,6 +122,15 @@ export default {
       
     }
   },
+  beforeMount(){
+				if(localStorage.getItem("userInfo")){
+					this.$router.push('/Cart');	
+									
+				}else{
+					this.$router.push('/login');					
+				}
+			
+  },
   mounted(){
     if(this.checked==true){
     }
