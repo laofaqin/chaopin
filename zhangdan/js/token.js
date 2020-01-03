@@ -8,14 +8,11 @@ getToken = function () {
 
 getreport = function () {
     return axios({
-        method: 'post',
-        url: "",
+        method: 'get',
+        url: "https://api.xy999888.com/api/annualreport/myreport",
         headers: {
             "Authorization": getToken()
         },
-        data: {
-
-        }
     }).then(res => res.data)
 }
 

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>年报详情</title>
 </head>
 <script src="./js/axios.js"></script>
 <script src="./js/fontsize.js"></script>
@@ -25,11 +25,9 @@
     }
 
     .head {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         padding: 0 0.3rem;
         height: 1rem;
+        text-align: center;
     }
 
     .back {
@@ -41,6 +39,8 @@
     .title {
         font-size: .36rem;
         color: white;
+        height: 1rem;
+        line-height: 1rem;
     }
 
     .change {
@@ -50,6 +50,8 @@
         padding: .05rem .1rem;
         border-radius: .23rem;
         position: relative;
+        float: right;
+        top: -0.7rem;
     }
 
     .change img {
@@ -71,6 +73,7 @@
         width: 100vw;
         display: block;
         margin-top: .12rem;
+        height: 1.87rem;
     }
 
     .addxiny {
@@ -410,17 +413,29 @@
         padding-right: .3rem;
         padding-bottom: .3rem
     }
+
+    #bishu {
+        font-size: .24rem;
+        font-family: Adobe Heiti Std;
+        font-weight: normal;
+        color: rgba(100, 37, 0, 1);
+    }
 </style>
 <link rel="stylesheet" href="./css/translate.css">
 <link rel="stylesheet" href="./css/white.css" id="styles">
-<script src="./js/token.js"></script>
 
+<script src="./js/token.js"></script>
+<script>
+    console.log(document.querySelector('#styles').href)
+    let styarr = ['./css/white.css','./css/red.css','./css/yellow.css']
+    document.querySelector('#styles').href = styarr[Math.floor(Math.random()*styarr.length)]
+    console.log(Math.floor(Math.random()*styarr.length))
+</script>
 <body>
     <div class="first">
         <img src="./img/headpic.png" alt="" class="headpic" />
         <div class="head">
-            <span class="back"></span>
-            <span class="title">2019年商家年报</span>
+            <div class="title">2019年<span id="usertype"></span>年报</div>
             <div class="change" id="change"><span>功能</span> <img src="./img/down.png">
                 <div class="putdown" id="putdown" style="display: none;">
                     <li id="redstyle">喜庆红</li>
@@ -431,63 +446,50 @@
             </div>
         </div>
         <div class="duration">统计时间：2019年1月1日~2019年12月31日</div>
-        <img class="twopig" src="./img/pig.png">
+        <div class="twopig"></div>
         <div class="addxiny">
             <div id="addxypic" style="width:2.12rem;height:.34rem ;display: inline-block;"></div>
-            <span>365</span>
+            <span id="addDays">365</span>
             <div id="adddaypic" style="height: .34rem;width:.32rem;display: inline-block;"></div>
         </div>
     </div>
     <div class="second">
         <div class="left">
             <div>全年流水总额</div>
-            <div>星级</div>
-            <div>领先90%商家</div>
         </div>
         <div class="right">
             共&nbsp;
-            <span id="zonge" style="display: none;">
+            <span id="zonge" style="display: inline;">
                 94万&nbsp;
             </span>
-            <span id="xinghao" style="display: inline;">****&nbsp;</span>
+            <span id="xinghao" class='xingx' style="display: none;">****&nbsp;</span>
             <span class="unit">元</span>
-            <img src="./img/closeeye.png" style="width:.3rem;height:.18rem" id="eye1" onclick="showorhide()">
+            <em id="transCount"><span>/</span>
+                <span id='bishu' style="display:inline"> 1233&nbsp;</span>
+                <span class='xingx' style="display: none;">**</span>
+                <span class="unit" style="color: #D09858;font-size:.24rem;padding-right: .1rem;">笔</span></em>
+            <img src="./img/openeye.png" style="width:.3rem;height:.18rem" id="eye1" onclick="showorhide()">
         </div>
     </div>
     <div class="third">
         <div class="title">
             <p>我的钱从哪里来？</p>
-            <!-- <span>我的钱从哪里来？</span> -->
         </div>
         <div class="allmoney">
-            <span>全年总分润</span>
+            <span>全年总收入</span>
             <div>
-                <span class="showmoney" style="display:none">1234</span><span class="hidemoney"
-                    style="display: inline;">****</span> 元
-                <img src="./img/closeeye.png" style="width:.3rem;height:.18rem" id="eye2" onclick="eye2click()">
+                <span id="AllIncome" class="showmoney" style="display:inline">1234</span><span class="hidemoney"
+                    style="display: none;">****</span> 元
+                <img src="./img/openeye.png" style="width:.3rem;height:.18rem" id="eye2" onclick="eye2click()">
             </div>
         </div>
-        <ul>
-            <li>
+        <ul id="fenrunlist">
+            <!-- <li>
                 <p>分享分润 </p>
                 <span><span class="showmoney" style="display:none">1234</span><span class="hidemoney"
                         style="display: inline;">****</span>元</span>
-            </li>
-            <li>
-                <p>分享分润 </p>
-                <span><span class="showmoney" style="display:none">1234</span><span class="hidemoney"
-                        style="display: inline;">****</span>元</span>
-            </li>
-            <li>
-                <p>分享分润 </p>
-                <span><span class="showmoney" style="display:none">1234</span><span class="hidemoney"
-                        style="display: inline;">****</span>元</span>
-            </li>
-            <li>
-                <p>分享分润 </p>
-                <span><span class="showmoney" style="display:none">1234</span><span class="hidemoney"
-                        style="display: inline;">****</span>元</span>
-            </li>
+            </li> -->
+           
 
         </ul>
     </div>
@@ -557,11 +559,9 @@
     </div>
 </body>
 <script>
-    let closeship = document.querySelectorAll(".hopeship .title img")[0]
     closepopup = function () {
         document.querySelector("#hopepopup").style.display = 'none'
     }
-
 
     openpopup = function () {
         document.querySelector("#hopepopup").style.display = 'flex'
@@ -570,14 +570,21 @@
     }
     showorhide = function () {
         let eye1 = document.querySelector("#eye1")
+        let xingx = document.querySelectorAll('.xingx')
         if (eye1.attributes.src.value == './img/closeeye.png') {
             eye1.attributes.src.value = "./img/openeye.png"
-            xinghao.style.display = 'none'
+            xingx.forEach(item => {
+                item.style.display = 'none'
+            })
             zonge.style.display = 'inline'
+            bishu.style.display = 'inline'
         } else {
             eye1.attributes.src.value = './img/closeeye.png'
-            xinghao.style.display = 'inline'
+            xingx.forEach(item => {
+                item.style.display = 'inline'
+            })
             zonge.style.display = 'none'
+            bishu.style.display = 'none'
         }
     }
     eye2click = function () {
@@ -643,9 +650,84 @@
         document.querySelector('#yuanwang').style.display = 'block';
         document.querySelector("#hopecontain").innerHTML = "【" + getone() + "】"
     }
+    Array.prototype.indexOf = function (val) {
+        for (var i = 0; i < this.length; i++) {
+            if (this[i] == val) return i;
+        }
+        return -1;
+    };
+    Array.prototype.remove = function (val) {
+        var index = this.indexOf(val);
+        if (index > -1) {
+            this.splice(index, 1);
+        }
+    };
+    getreport().then(res => {
+        console.log(res)
+        // res.content.userType = 2
+        let allsort = res.content
+        let keys = Object.keys(allsort)
+
+        let joinDays = allsort.joinDays.value;   //天数
+        let incomeTotalAmount = allsort.incomeTotalAmount.value;//年总收入
+
+        let userType = allsort.userType;//1：用户；2，商家，3.服务商，4，代理
+
+        keys.remove('joinDays')
+        keys.remove('incomeTotalAmount')
+        keys.remove('storeTotalAmount')
+        keys.remove('storeTotalCount')
+        keys.remove('userType')
+
+        // keys.remove('a')
 
 
-    
+        console.log(keys)
+        let arr = []
+        for (let i = 0; i < keys.length; i++) {
+            arr.push(allsort[keys[i]])
+        }
+        console.log(arr)
+        let html = ''
+        arr.map(item => {
+            html += `<li>
+                <p>${item.name}</p>
+                <span><span class="showmoney" style="display:inline">${item.value}</span><span class="hidemoney"
+                        style="display: none;">****</span>元</span>
+            </li>`
+        })
+        document.querySelector('#fenrunlist').innerHTML = html;
+        document.querySelector('#AllIncome').innerHTML = incomeTotalAmount;
+        document.querySelector('#addDays').innerHTML = joinDays;
+        if (allsort.userType == 2) {
+            var storeTotalAmount = allsort.storeTotalAmount.value;//全年流水总额
+            var storeTotalCount = allsort.storeTotalCount.value;//全年订单总数
+            
+            document.querySelector('#bishu').innerHTML = storeTotalCount;
+        } else {
+            var storeTotalAmount = incomeTotalAmount
+            document.querySelector('#transCount').style.display = 'none'
+        }
+        document.querySelector('#zonge').innerHTML = storeTotalAmount;
+
+
+
+        document.querySelector('#usertype').innerHTML = userTypeName(userType)
+
+
+    })
+    function userTypeName(val) {
+        if (val == 1) {
+            alert('普通用户没有查看权限')
+            return
+        } else if (val == 2) {
+            return '商家'
+        } else if (val == 3) {
+            return '服务商'
+        } else if (val == 4) {
+            return '代理商'
+        }
+    }
     // getreport().then(function (response) {
     //     console.log(response);
     // }).catch(function (error) {

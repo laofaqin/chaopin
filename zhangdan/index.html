@@ -81,8 +81,9 @@
         color: rgba(208, 0, 1, 1);
         font-weight: bold;
     }
-    .btn:active{
-        transform: scale(.98,.98);
+
+    .btn:active {
+        transform: scale(.98, .98);
     }
 
     .login input {
@@ -123,18 +124,7 @@
 <script>
     godetail = function () {
         if (getToken()) {
-            getreport().then((res) => {
-                if (res.code = 1) {
-                    location.href = './detail.html'
-                } else {
-                    document.querySelector("#godetail").style.display = 'none';
-                    document.querySelector("#loginbox").style.display = 'flex';
-                }
-            }).catch((err) => {
-                console.log(err)
-                document.querySelector("#godetail").style.display = 'none';
-                document.querySelector("#loginbox").style.display = 'flex';
-            })
+            location.href = './detail.html'
         } else {
             document.querySelector("#godetail").style.display = 'none';
             document.querySelector("#loginbox").style.display = 'flex';
@@ -162,7 +152,21 @@
             if (response.code == 1) {
                 // 正常登录
                 saveToken(response.content)
-                location.href = './detail.html'
+                getreport().then((res) => {
+                    console.log(res)
+                    if (res.code == 1) {
+                        if (res.content.userType == 1) {
+                            saveToken('')
+                            alert('普通用户没有年报生产')
+                            return
+                        }
+                        location.href = './detail.html'
+                    } else {
+                        document.querySelector("#godetail").style.display = 'none';
+                        document.querySelector("#loginbox").style.display = 'flex';
+                    }
+                })
+
             } else if (response.code == '0') {
                 // 密码错误
                 alert(response.msg)
