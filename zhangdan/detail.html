@@ -426,11 +426,10 @@
 
 <script src="./js/token.js"></script>
 <script>
-    console.log(document.querySelector('#styles').href)
-    let styarr = ['./css/white.css','./css/red.css','./css/yellow.css']
-    document.querySelector('#styles').href = styarr[Math.floor(Math.random()*styarr.length)]
-    console.log(Math.floor(Math.random()*styarr.length))
+    let styarr = ['./css/white.css', './css/red.css', './css/yellow.css']
+    document.querySelector('#styles').href = styarr[Math.floor(Math.random() * styarr.length)]
 </script>
+
 <body>
     <div class="first">
         <img src="./img/headpic.png" alt="" class="headpic" />
@@ -489,7 +488,7 @@
                 <span><span class="showmoney" style="display:none">1234</span><span class="hidemoney"
                         style="display: inline;">****</span>元</span>
             </li> -->
-           
+
 
         </ul>
     </div>
@@ -702,7 +701,7 @@
         if (allsort.userType == 2) {
             var storeTotalAmount = allsort.storeTotalAmount.value;//全年流水总额
             var storeTotalCount = allsort.storeTotalCount.value;//全年订单总数
-            
+
             document.querySelector('#bishu').innerHTML = storeTotalCount;
         } else {
             var storeTotalAmount = incomeTotalAmount
@@ -718,7 +717,7 @@
     })
     function userTypeName(val) {
         if (val == 1) {
-            alert('普通用户没有查看权限')
+            location.href = "./index.html"
             return
         } else if (val == 2) {
             return '商家'
@@ -728,11 +727,6 @@
             return '代理商'
         }
     }
-    // getreport().then(function (response) {
-    //     console.log(response);
-    // }).catch(function (error) {
-    //     console.log(error);
-    // });
 
 </script>
 
