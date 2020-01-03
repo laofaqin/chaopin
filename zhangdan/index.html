@@ -89,11 +89,13 @@
     .login input {
         border: none;
         text-indent: 1em;
-        height: .5rem;
-        border-radius: .3rem;
+        height: .7rem;
+        border-radius: .7rem;
         background: rgba(225, 225, 225, .9);
         box-shadow: 0 0 1px 1px red;
         margin-bottom: .38rem;
+        font-size: .32rem;
+        line-height: .7rem;
     }
 
     .login {
@@ -105,9 +107,10 @@
         right: 0;
         bottom: 0;
     }
-    body{
+
+    body {
         height: 100vh;
-        background:url(./img/bg.png) ;
+        background: url(./img/bg.png);
         background-size: 100vw 100vh;
         background-repeat: no-repeat;
     }
@@ -116,7 +119,7 @@
 <body>
     <!-- <img src="./img/bg.png" class="bg" /> -->
     <!-- <img src="./img/2019@2x.png" class="nian"> -->
-    
+
     <div class="text">
         —— 已为您生成年度总报告 ——
     </div>
@@ -128,6 +131,14 @@
         <button class="btn" id="godetail2" onclick="godetail2()">登录查看年报</button>
     </div>
 </body>
+<script>
+
+var hrt = document.documentElement.clientHeight; //获取当前可视区域的高度存到hrt变量
+    window.onload = function(){ //在页面整体加载完毕时
+        document.getElementById('body').style.height= hrt+'px'//把获取到的高度赋值给根div
+    }
+
+</script>
 <script>
     godetail = function () {
         if (getToken()) {
