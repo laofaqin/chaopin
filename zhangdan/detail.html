@@ -662,8 +662,10 @@
         }
     };
     getreport().then(res => {
-        console.log(res)
         // res.content.userType = 2
+        if(res.content.userType = 1){
+            location.href = './index.html'
+        }
         let allsort = res.content
         let keys = Object.keys(allsort)
 
