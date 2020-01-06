@@ -448,7 +448,7 @@
         <div class="twopig"></div>
         <div class="addxiny">
             <div id="addxypic" style="width:2.12rem;height:.34rem ;display: inline-block;"></div>
-            <span id="addDays">365</span>
+            <span id="addDays">&nbsp;&nbsp;</span>
             <div id="adddaypic" style="height: .34rem;width:.32rem;display: inline-block;"></div>
         </div>
     </div>
@@ -459,12 +459,12 @@
         <div class="right">
             共&nbsp;
             <span id="zonge" style="display: inline;">
-                94万&nbsp;
+                &nbsp;&nbsp;
             </span>
             <span id="xinghao" class='xingx' style="display: none;">****&nbsp;</span>
             <span class="unit">元</span>
             <em id="transCount"><span>/</span>
-                <span id='bishu' style="display:inline"> 1233&nbsp;</span>
+                <span id='bishu' style="display:inline"> &nbsp;&nbsp;</span>
                 <span class='xingx' style="display: none;">**</span>
                 <span class="unit" style="color: #D09858;font-size:.24rem;padding-right: .1rem;">笔</span></em>
             <img src="./img/openeye.png" style="width:.3rem;height:.18rem" id="eye1" onclick="showorhide()">
@@ -477,7 +477,7 @@
         <div class="allmoney">
             <span>全年总收入</span>
             <div>
-                <span id="AllIncome" class="showmoney" style="display:inline">1234</span><span class="hidemoney"
+                <span id="AllIncome" class="showmoney" style="display:inline">&nbsp;</span><span class="hidemoney"
                     style="display: none;">****</span> 元
                 <img src="./img/openeye.png" style="width:.3rem;height:.18rem" id="eye2" onclick="eye2click()">
             </div>
@@ -538,16 +538,7 @@
                 <div class="contain ">
                     <div class="wrapper">
                         <div class="bg-bubbles" id="hopebox">
-                            <li>哈哈哈哈</li>
-                            <li>厉害</li>
-                            <li>不得了</li>
-                            <li>我成功啦</li>
-                            <li>阿 </li>
-                            <li>水电费</li>
-                            <li>阿斯蒂芬</li>
-                            <li>范德萨</li>
-                            <li>阿斯顿飞规划局快乐</li>
-                            <li>阿斯蒂芬</li>
+                            
                         </div>
                     </div>
 
@@ -662,8 +653,8 @@
         }
     };
     getreport().then(res => {
-        // res.content.userType = 2
-        if(res.content.userType = 1){
+        res.content.userType = 4
+        if(res.content.userType == 1){
             location.href = './index.html'
         }
         let allsort = res.content
@@ -683,12 +674,12 @@
         // keys.remove('a')
 
 
-        console.log(keys)
+        // console.log(keys)
         let arr = []
         for (let i = 0; i < keys.length; i++) {
             arr.push(allsort[keys[i]])
         }
-        console.log(arr)
+        // console.log(arr)
         let html = ''
         arr.map(item => {
             html += `<li>
