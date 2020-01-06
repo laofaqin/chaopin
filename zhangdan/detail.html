@@ -431,6 +431,14 @@
 </script>
 
 <body>
+
+    <div id=loading style="position:absolute; left:423px; top:261px; width:227px; height:20px; z-index:1">
+        正在载入中,请稍等.....</div>
+    <script>
+        function closeDiv() {
+            document.getElementById('loading').style.visibility = 'hidden';
+        }
+    </script>
     <div class="first">
         <img src="./img/headpic.png" alt="" class="headpic" />
         <div class="head">
@@ -538,7 +546,7 @@
                 <div class="contain ">
                     <div class="wrapper">
                         <div class="bg-bubbles" id="hopebox">
-                            
+
                         </div>
                     </div>
 
@@ -617,10 +625,12 @@
             styles.href = './css/yellow.css';
         } else if (target.id === 'exit') {
             saveToken("");
+            clearDetail()
             location.href = './index.html'
         }
         hide();
     }
+
     document.querySelector('#change').onclick = (event) => {
         if (putdown.style.display == 'none') {
             show();
@@ -652,12 +662,16 @@
             this.splice(index, 1);
         }
     };
-    getreport().then(res => {
-        res.content.userType = 4
-        if(res.content.userType == 1){
+
+    let content = JSON.parse(localStorage.getItem('reportDetail'))
+    if (content) {
+        // res.content.userType = 4
+        if (content.userType == 1) {
+            saveToken('')
+            clearDetail()
             location.href = './index.html'
         }
-        let allsort = res.content
+        let allsort = content
         let keys = Object.keys(allsort)
 
         let joinDays = allsort.joinDays.value;   //天数
@@ -671,15 +685,11 @@
         keys.remove('storeTotalCount')
         keys.remove('userType')
 
-        // keys.remove('a')
-
-
-        // console.log(keys)
         let arr = []
         for (let i = 0; i < keys.length; i++) {
             arr.push(allsort[keys[i]])
         }
-        // console.log(arr)
+
         let html = ''
         arr.map(item => {
             html += `<li>
@@ -701,18 +711,18 @@
             document.querySelector('#transCount').style.display = 'none'
         }
         document.querySelector('#zonge').innerHTML = storeTotalAmount;
-
-
-
         document.querySelector('#usertype').innerHTML = userTypeName(userType)
+    } else {
+        saveToken('')
+        clearDetail()
+        location.href = './index.html'
+    }
 
 
-    })
+
+
     function userTypeName(val) {
-        if (val == 1) {
-            location.href = "./index.html"
-            return
-        } else if (val == 2) {
+        if (val == 2) {
             return '商家'
         } else if (val == 3) {
             return '服务商'
@@ -721,6 +731,9 @@
         }
     }
 
+</script>
+<script>
+     closeDiv()
 </script>
 
 </html>

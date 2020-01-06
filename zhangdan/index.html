@@ -176,8 +176,10 @@
                             saveToken('')
                             alert('普通用户没有年报生产')
                             return
+                        }else{
+                            localStorage.setItem('reportDetail', JSON.stringify(res.content))
+                            location.href = './detail.html'
                         }
-                        location.href = './detail.html'
                     } else {
                         document.querySelector("#godetail").style.display = 'none';
                         document.querySelector("#loginbox").style.display = 'flex';

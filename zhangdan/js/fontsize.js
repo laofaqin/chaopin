@@ -1,5 +1,6 @@
 window.onload = function () {
     getRem(720, 100)
+   
 };
 window.onresize = function () {
     getRem(720, 100)

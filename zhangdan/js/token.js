@@ -5,7 +5,9 @@ getToken = function () {
     let aa = JSON.parse(localStorage.getItem('reportToken'))
     return aa
 }
-
+clearDetail = function(){
+    localStorage.setItem("reportDetail",'')
+}
 getreport = function () {
     return axios({
         method: 'get',
@@ -26,15 +28,3 @@ login = function (phone, password) {
         }
     }).then(res => res.data)
 }
-// test = function () {
-//     return axios({
-//         method: 'post',
-//         url: "https://api.xy226688.com/api/groupbuygoodscart/save",
-       
-//         data: {
-//             goodsCount: 5,
-//             groupBuyGoodsId: 7185,
-//             groupBuyingListId: 54581228154230
-//         }
-//     })
-// }
